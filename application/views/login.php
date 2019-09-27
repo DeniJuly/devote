@@ -8,35 +8,35 @@
 		<!-- bootstrap -->
 		<link
 			rel="stylesheet"
-			href="<?= base_url() ?>assets/materialdesign/css/bootstrap-material-design.min.css"
+			href="<?= base_url() ?>public/css/bootstrap/bootstrap.min.css"
 		/>
 		<!-- my styles -->
 		<link
 			rel="stylesheet"
-			href="<?= base_url() ?>assets/styles/login.css"
+			href="<?= base_url() ?>public/css/login.css"
 		/>
 		<!-- sweetalert -->
 		<link
 			rel="stylesheet"
-			href="<?= base_url() ?>assets/sweetalert/sweetalert2.min.css"
+			href="<?= base_url() ?>public/js/sweetalert/sweetalert2.min.css"
 		/>
 	</head>
 	<body>
 		<div class="svg">
 			<img
-				src="<?= base_url() ?>assets/icon/right-top.svg"
+				src="<?= base_url() ?>public/img/decoration/green_top.svg"
 				alt=""
 				width="100%"
 				id="right-top"
 			/>
 			<img
-				src="<?= base_url() ?>assets/icon/right-botom.svg"
+				src="<?= base_url() ?>public/img/decoration/purple-botom.svg"
 				alt=""
 				width="100%"
 				id="right"
 			/>
 			<img
-				src="<?= base_url() ?>assets/icon/left-bottom.svg"
+				src="<?= base_url() ?>public/img/decoration/green-bottom.svg"
 				alt=""
 				width="100%"
 				id="left"
@@ -73,17 +73,7 @@
 			</div>
 		</div>
 	</body>
-	<script src="<?= base_url() ?>assets/jquery/jquery.min.js"></script>
-	<script
-		src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
-		integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
-		crossorigin="anonymous"
-	></script>
-	<script src="<?= base_url() ?>assets/materialdesign/js/bootstrap-material-design.min.js"></script>
-	<script src="<?= base_url() ?>assets/sweetalert/sweetalert2.all.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			$("body").bootstrapMaterialDesign();
-		});
-	</script>
+	<script src="<?= base_url() ?>public/js/jquery.min.js"></script>
+	<script src="<?= base_url() ?>public/js/bootstrap/bootstrap.min.js"></script>
+	<script src="<?= base_url() ?>public/js/sweetalert2/sweetalert2.all.min.js"></script>
 </html>
