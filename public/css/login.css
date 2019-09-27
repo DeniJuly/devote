@@ -8,18 +8,17 @@
 	src: url("../fonts/poppins/Poppins-Light.ttf");
 }
 
+.container.container-login{
+	margin-top: 100px;
+}
+
 .container h1 {
-	color: #745ed2;
-	font-family: "Poppins-Medium";
+	color: #2CB778;
+    font-family: "Poppins-Medium";
 }
 
 body {
 	background-color: #f5f5f5;
-}
-
-#usernamehelp {
-	font-family: "Poppins-Light";
-	font-size: 10px;
 }
 
 form {
@@ -35,6 +34,14 @@ form .form-group input::placeholder {
 	font-size: 12px;
 }
 
+.bg-input{
+    border: 0px;
+    border-bottom: 2px solid #ddd;
+	background: whitesmoke;
+	font-size: 18px;
+    font-family: Poppins-Light;
+}
+
 .login-btn {
 	position: absolute;
 	right: 0;
@@ -42,19 +49,58 @@ form .form-group input::placeholder {
 }
 
 .login {
-	background: linear-gradient(270deg, #ffa22b 54.17%, #fcc330 100%);
+	background: #EC8956;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 25px;
 	color: #fff;
 	font-family: "Poppins-Medium";
+	width: 145px;
+	margin-top: 15px;
 }
 
+input[type="text"]:focus,
+.uneditable-input:focus {   
+  border-color: #2CB778;
+  box-shadow: none;
+  outline: 0 none;
+  background: whitesmoke;
+}
+
+.svg{
+	display: none;
+}
+
+.logo img{
+    position: absolute;
+    top: 14px;
+    right: 0;
+    width: 130px;
+}
+
+.color-green{
+	color: #2CB778;
+}
+.label-login{
+	color: #2CB778;
+    font-family: poppins-light;
+}
+
+@media only screen and (min-width: 576px){
+	.logo img{
+		right: 20px;
+	}
+}
 @media only screen and (max-width: 480px) {
+	.svg{
+		display: block;
+	}
 	#left,
 	#right,
 	#right-top {
 		position: absolute;
 		bottom: -140px;
+		margin-bottom: 0px;
+		margin-right: 3px;
 	}
 	#right-top {
 		top: -30px;
@@ -86,11 +132,16 @@ form .form-group input::placeholder {
 }
 
 @media only screen and (max-width: 360px) {
+	.svg{
+		display: block;
+	}
 	#left,
 	#right,
 	#right-top {
 		position: absolute;
 		bottom: 0px;
+		margin-bottom: 0px;
+		margin-right: 3px;
 	}
 	.container {
 		margin-top: 30px;
@@ -115,6 +166,9 @@ form .form-group input::placeholder {
 	}
 }
 @media only screen and (max-width: 320px) {
+	.svg{
+		display: block;
+	}
 	#usernamehelp {
 		font-size: 13px;
 	}

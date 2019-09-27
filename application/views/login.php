@@ -18,7 +18,7 @@
 		<!-- sweetalert -->
 		<link
 			rel="stylesheet"
-			href="<?= base_url() ?>public/js/sweetalert/sweetalert2.min.css"
+			href="<?= base_url() ?>public/css/sweetalert2/sweetalert2.min.css"
 		/>
 	</head>
 	<body>
@@ -30,40 +30,40 @@
 				id="right-top"
 			/>
 			<img
-				src="<?= base_url() ?>public/img/decoration/purple-botom.svg"
+				src="<?= base_url() ?>public/img/decoration/purple_bottom.svg"
 				alt=""
 				width="100%"
 				id="right"
 			/>
 			<img
-				src="<?= base_url() ?>public/img/decoration/green-bottom.svg"
+				src="<?= base_url() ?>public/img/decoration/green_bottom.svg"
 				alt=""
 				width="100%"
 				id="left"
 			/>
 		</div>
-		<div class="container">
+		<div class="logo">
+			<img src="<?= base_url()?>public/img/logo/smk.png" alt="Logo SMKN 1 Bawang">
+		</div>
+		<div class="container container-login">
 			<h1>LOGIN</h1>
 			<form action="<?= base_url() ?>index.php/Login/login_process" method="POST">
 				<div class="form-group">
-					<label for="exampleInputEmail1">Username</label>
+					<label for="nis" class="label-login color-green">Nis</label>
 					<input
 						type="text"
-						class="form-control"
-						id="username"
-						placeholder="masukan username"
+						class="form-control bg-input rounded-0"
+						id="nis"
+						placeholder="masukan nis"
 					/>
-					<small id="usernamehelp" class="form-text text-muted"
-						>harap masukan username dengan benar</small
-					>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
+					<label for="token" class="label-login color-green">Token</label>
 					<input
-						type="password"
-						class="form-control"
-						id="password"
-						placeholder="masukan password"
+						type="text"
+						class="form-control bg-input rounded-0"
+						id="token"
+						placeholder="masukan token"
 					/>
 				</div>
 				<div class="login-btn">
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 	</body>
-	<script src="<?= base_url() ?>public/js/jquery.min.js"></script>
+	<script src="<?= base_url() ?>public/js/jquery.js"></script>
 	<script src="<?= base_url() ?>public/js/bootstrap/bootstrap.min.js"></script>
 	<script src="<?= base_url() ?>public/js/sweetalert2/sweetalert2.all.min.js"></script>
 </html>
