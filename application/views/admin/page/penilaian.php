@@ -1,10 +1,18 @@
 <style type="text/css">
   .checked{
-    color: orange;
+    color: #FFEC19;
   }
-  .checked2{
-    size: 50px;
-    color: orange;
+  .checked-grin{
+    color: #FFC100;
+  }
+  .checked-meh{
+    color: #FF9800;
+  }
+  .checked-frown{
+    color: #FF5607;
+  }
+  .checked-sad{
+    color: #F6412D;
   }
 </style>
 <div class="content-wrapper">
@@ -16,7 +24,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Diagram Hasil Pemilihan</h3>
+              <h3 class="card-title">Data Penilaian Osis Tahun Sebelum</h3>
             </div>
             <div class="card-body p-0">
               <table class="table table-striped projects">
@@ -32,23 +40,17 @@
                           Rating
                       </th>
                       <th style="width: 50%">
-                          Project Progress
+                          Ekspresi
                       </th>
                   </tr>
               </thead>
               <tbody>
                   <tr>
+                      <td>1.</td>
                       <td>
-                          1.
-                      </td>
-                      <td>
-                          <a>
-                              Pardiminmin
-                          </a>
+                          <a>Pardiminmin</a>
                           <br/>
-                          <small>
-                              Rekayasa Perangkat Lunak
-                          </small>
+                          <small>Rekayasa Perangkat Lunak</small>
                       </td>
                       <td>
                           <ul class="list-inline">
@@ -61,22 +63,16 @@
                               </li>
                           </ul>
                       </td>
-                      <td class="project-state">
-                          <span class="far fa-grin-stars checked2 fa-3x"></span>
+                      <td>
+                          <span class="far fa-grin-stars checked fa-3x"></span>
                       </td>
                   </tr>
                   <tr>
+                      <td>2.</td>
                       <td>
-                          1.
-                      </td>
-                      <td>
-                          <a>
-                              Pardiminmin
-                          </a>
+                          <a>Pardiminmin</a>
                           <br/>
-                          <small>
-                              Rekayasa Perangkat Lunak
-                          </small>
+                          <small>Rekayasa Perangkat Lunak</small>
                       </td>
                       <td>
                           <ul class="list-inline">
@@ -89,22 +85,16 @@
                               </li>
                           </ul>
                       </td>
-                      <td class="project-state">
-                          <span class="far fa-grin checked2 fa-3x"></span>
+                      <td>
+                          <span class="far fa-grin checked-grin fa-3x"></span>
                       </td>
                   </tr>
                   <tr>
+                      <td>3.</td>
                       <td>
-                          1.
-                      </td>
-                      <td>
-                          <a>
-                              Pardiminmin
-                          </a>
+                          <a>Pardiminmin</a>
                           <br/>
-                          <small>
-                              Rekayasa Perangkat Lunak
-                          </small>
+                          <small>Rekayasa Perangkat Lunak</small>
                       </td>
                       <td>
                           <ul class="list-inline">
@@ -117,22 +107,16 @@
                               </li>
                           </ul>
                       </td>
-                      <td class="project-state">
-                          <span class="far fa-meh checked2 fa-3x"></span>
+                      <td>
+                          <span class="far fa-meh checked-meh fa-3x"></span>
                       </td>
                   </tr>
                   <tr>
+                      <td>4.</td>
                       <td>
-                          1.
-                      </td>
-                      <td>
-                          <a>
-                              Pardiminmin
-                          </a>
+                          <a>Pardiminmin</a>
                           <br/>
-                          <small>
-                              Rekayasa Perangkat Lunak
-                          </small>
+                          <small>Rekayasa Perangkat Lunak</small>
                       </td>
                       <td>
                           <ul class="list-inline">
@@ -145,22 +129,16 @@
                               </li>
                           </ul>
                       </td>
-                      <td class="project-state">
-                          <span class="far fa-frown checked2 fa-3x"></span>
+                      <td>
+                          <span class="far fa-frown checked-frown fa-3x"></span>
                       </td>
                   </tr>
                   <tr>
+                      <td>5.</td>
                       <td>
-                          1.
-                      </td>
-                      <td>
-                          <a>
-                              Pardiminmin
-                          </a>
+                          <a>Pardiminmin</a>
                           <br/>
-                          <small>
-                              Rekayasa Perangkat Lunak
-                          </small>
+                          <small>Rekayasa Perangkat Lunak</small>
                       </td>
                       <td>
                           <ul class="list-inline">
@@ -173,8 +151,8 @@
                               </li>
                           </ul>
                       </td>
-                      <td class="project-state">
-                          <span class="far fa-sad-tear checked2 fa-3x"></span>
+                      <td>
+                          <span class="far fa-sad-tear checked-sad fa-3x"></span>
                       </td>
                   </tr>
               </tbody>

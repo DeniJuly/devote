@@ -40,9 +40,9 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control form-control-navbar" disabled="true" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
+          <button class="btn btn-navbar" disabled="true" type="submit">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -54,7 +54,7 @@
       <!-- Messages Dropdown Menu -->
       <li class="nav-item">
         <a class="nav-link" href="#" style="color: red;" title="Keluar">
-          <i class="fas fa-sign-out-alt"></i>
+          <i class="fas fa-sign-out-alt fa-2x"></i>
         </a>
       </li>
   </nav>
@@ -120,13 +120,14 @@
 
 
           <li class="nav-header">HASIL</li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview <?php if ($this->uri->segment(2)=='bar_diagram'){echo 'menu-open';}
+                                            elseif($this->uri->segment(2)=='pie_diagram'){echo 'menu-open';}?>">
             <a href="#" class="nav-link <?php if ($this->uri->segment(2)=='bar_diagram') {
                 echo 'active';
               } else if ($this->uri->segment(2)=='pie_diagram') {
                 echo 'active';
               } ?>">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-chart-line"></i>
               <p>
                 Diagram Calon
                 <i class="right fas fa-angle-left"></i>
@@ -137,7 +138,7 @@
                 <a class="nav-link <?php if ($this->uri->segment(2)=='bar_diagram') {
                 echo 'active';
               } ?>" href="<?php echo site_url('admin/bar_diagram'); ?>">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-chart-bar nav-icon"></i>
                   <p>Bar Diagram</p>
                 </a>
               </li>
@@ -145,7 +146,7 @@
                 <a class="nav-link <?php if ($this->uri->segment(2)=='pie_diagram') {
                 echo 'active';
               } ?>" href="<?php echo site_url('admin/pie_diagram'); ?>">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-chart-pie nav-icon"></i>
                   <p><i>Pie</i> Diagram</p>
                 </a>
               </li>

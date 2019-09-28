@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  
+
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -20,9 +20,9 @@
               <p>Calon</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="fa fa-user-friends"></i>
             </div>
-            <a href="<?= base_url()?>admin/data_calon" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?= base_url();?>index.php/admin/data_calon" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -33,9 +33,9 @@
               <p>Pemilih</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="fa fa-users"></i>
             </div>
-            <a href="<?= base_url()?>admin/data_pemilih" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?= base_url()?>index.php/admin/data_pemilih" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -46,9 +46,9 @@
               <p>Feedback</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="far fa-star"></i>
             </div>
-            <a href="<?= base_url()?>admin/penilaian" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?= base_url()?>index.php/admin/penilaian" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -59,9 +59,9 @@
               <p>Hasil Sementara</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="fa fa-chart-pie"></i>
             </div>
-            <a href="<?= base_url()?>admin/bar_diagram" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?= base_url()?>index.php/admin/bar_diagram" class="small-box-footer">Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
       </div>

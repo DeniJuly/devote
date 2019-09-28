@@ -46,7 +46,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
   }],
   data: [{
     type: "pie",
-    yValueFormatString: "#,##0 orang",
+    yValueFormatString: "#,##0 Pemilih",
     indexLabel: "{label} ({y})",
     dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
   }]
