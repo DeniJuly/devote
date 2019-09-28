@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <a href="<?= base_url() ?>devote/pilih" class="btn btn-lanjut" disabled="disabled">Simpan</a>
+                    <a href="<?= site_url() ?>/devote/pemilihan" class="btn btn-lanjut" disabled="disabled">Simpan</a>
                 </div>
             </div>
         </div>

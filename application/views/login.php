@@ -55,6 +55,7 @@
 						class="form-control bg-input rounded-0"
 						id="nis"
 						placeholder="masukan nis"
+						autofocus="on"
 					/>
 				</div>
 				<div class="form-group">
@@ -67,7 +68,7 @@
 					/>
 				</div>
 				<div class="login-btn">
-					<button class="btn login">LOGIN</button>
+					<button class="btn login">MASUK</button>
 				</div>
 			</form>
 			</div>

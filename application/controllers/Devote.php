@@ -18,4 +18,14 @@ class Devote extends CI_Controller {
 	{
 		$this->load->view('user/ulasan');
 	}
+
+	public function pemilihan()
+	{
+		$this->load->view('user/pemilihan');
+	}
+
+	public function aspirasi()
+	{
+		$this->load->view('user/aspirasi');
+	}
 }
