@@ -5,7 +5,7 @@ $dataPoints = array(
   array("y"=>6,"label"=>"Deni Juli Setiawan"),
   array("y"=>12,"label"=>"Wahyu Feb"),
   array("y"=>2,"label"=>"M. Saiful"),
-  array("y"=>1,"label"=>"Hermawan Genta")
+  array("y"=>2,"label"=>"M. Saiful")
 )
  
 ?>
@@ -48,7 +48,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
     type: "pie",
     yValueFormatString: "#,##0 Pemilih",
     indexLabel: "{label} ({y})",
-    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+    dataPoints: <?php echo $sa ?>
   }]
 });
 chart.render();

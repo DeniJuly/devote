@@ -14,56 +14,38 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>id</th>
-                  <th>kandidat</th>
-                  <th>pemilih</th>
-                  <th>year</th>
-                  <th>purchase</th>
-                  <th>sale</th>
-                  <th>profit</th>
+                  <th>ID</th>
+                  <th>Nama</th>
+                  <th>Kelas</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Token</th>
+                  <th>Jenis User</th>
                 </tr>
                 </thead>
                 <tbody>
-                <!-- <?php foreach ($data as $dt): ?>
+                <?php foreach ($user as $dt): ?>
 	                <tr>
-	                  <td><?php echo $dt->id; ?></td>
-	                  <td><?php echo $dt->kandidat; ?></td>
-	                  <td><?php echo $dt->pemilih; ?></td>
-	                  <td><?php echo $dt->year; ?></td>
-	                  <td>purchase</td>
-	                  <td>sale</td>
-	                  <td>profit</td>
+	                  <td><?php echo $dt->id_user; ?></td>
+	                  <td><?php echo $dt->nama; ?></td>
+	                  <td><?php echo $dt->nama_kelas; ?></td>
+	                  <?php if ($dt->jk == 0) { ?>
+	                  	<td><?php echo "Perempuan" ?></td>
+	                  <?php }elseif ($dt->jk == 1) { ?>
+	                  	<td><?php echo "Laki-laki" ?></td>
+	                  <?php } ?>
+	                  <td><?php echo $dt->token; ?></td>
+	                  <td><?php echo $dt->jenis_user; ?></td>
 
 	                </tr>
-            	<?php endforeach ?> -->
-            	<tr>
-	            	<td>1.</td>
-	                <td>kandidat</td>
-	                <td>pemilih</td>
-	                <td>year</td>
-	                <td>purchase</td>
-	                <td>sale</td>
-	                <td>profit</td>
-	            </tr>
-	            <tr>
-	            	<td>2.</td>
-	                <td>kandidat</td>
-	                <td>pemilih</td>
-	                <td>year</td>
-	                <td>purchase</td>
-	                <td>sale</td>
-	                <td>profit</td>
-	            </tr>
-                </tbody>
+            	<?php endforeach ?>
                 <tfoot>
                 <tr>
-                  <th>id</th>
-                  <th>kandidat</th>
-                  <th>pemilih</th>
-                  <th>year</th>
-                  <th>purchase</th>
-                  <th>sale</th>
-                  <th>profit</th>
+                  <th>ID</th>
+                  <th>Nama</th>
+                  <th>Kelas</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Token</th>
+                  <th>Jenis User</th>
                 </tr>
                 </tfoot>
               </table>

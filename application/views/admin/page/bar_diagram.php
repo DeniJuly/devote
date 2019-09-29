@@ -26,24 +26,13 @@
 <script>
     Morris.Bar({
       element: 'graph',
-      data: [
-      {"data":10,"nama":"Risqi Ardiansyah"},
-      {"data":6,"nama":"Deni Juli Setiawan"},
-      {"data":12,"nama":"Wahyu Feb"},
-      {"data":2,"nama":"M. Saiful"},
-      {"data":1,"nama":"Hermawan Genta"}
-      ],
+      data: <?php echo $sa; ?>,
       xkey: 'nama',
       ykeys: ['data'],
       labels: ['data'],
       hideHover: 'auto',
-      barColors: function (row, series, type) {
-      // console.log("--> "+row.label, series, type);
-      if(row.label == "Risqi Ardiansyah") return "#20639B";
-      else if(row.label == "Wahyu Feb") return "#3CAEA3";
-      else if(row.label == "Deni Juli Setiawan") return "#ED553B";
-      else if(row.label == "M. Saiful") return "#173F5F";
-      else if(row.label == "Hermawan Genta") return "#F6D55C";
+      barColors: function () {
+        return "#3CAEA3";
       }
     });
 </script>

@@ -16,7 +16,7 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>3 Pasang</h3>
+              <h3><?php echo count($calon)." Pasang"; ?></h3>
               <p>Calon</p>
             </div>
             <div class="icon">
@@ -29,7 +29,7 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>2200</h3>
+              <h3><?php echo count($user); ?></h3>
               <p>Pemilih</p>
             </div>
             <div class="icon">
