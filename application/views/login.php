@@ -51,7 +51,7 @@
 				<div class="form-group">
 					<label for="nis" class="label-login color-green">Nis</label>
 					<input
-						type="text"
+						type="number"
 						class="form-control bg-input rounded-0"
 						id="nis"
 						placeholder="masukan nis"
