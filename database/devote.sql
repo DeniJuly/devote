@@ -54,7 +54,6 @@ CREATE TABLE `calon` (
   `misi` varchar(1000) DEFAULT NULL,
   `foto` varchar(100) NOT NULL,
   `jenis_calon` enum('CALON','OSIS') NOT NULL,
-  `rate` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_calon`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -114,6 +113,29 @@ LOCK TABLES `pemilihan` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `penilaian`
+--
+
+DROP TABLE IF EXISTS `penilaian`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `penilaian` (
+  `id_calon` int(10) NOT NULL,
+  `id_user` int(10) NOT NULL,
+  `penilaian` double NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `penilaian`
+--
+
+LOCK TABLES `penilaian` WRITE;
+/*!40000 ALTER TABLE `penilaian` DISABLE KEYS */;
+/*!40000 ALTER TABLE `penilaian` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -149,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-29 11:22:53
+-- Dump completed on 2019-09-29 19:32:53
