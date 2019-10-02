@@ -11,17 +11,7 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
-<!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="<?= base_url() ?>public/admin/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="<?= base_url() ?>public/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
-<script src="<?= base_url() ?>public/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<script src="<?= base_url() ?>public/admin/dist/js/adminlte.js"></script>
-<script src="<?= base_url() ?>public/admin/plugins/dt/datatables-bs4/js/dataTables.bootstrap4.js"></script>
-<script src="<?= base_url() ?>public/admin/plugins/dt/datatables/jquery.dataTables.js"></script>
-<!-- Morris / Chart -->
 
 <script>
   $(function () {
@@ -36,6 +26,53 @@
     });
   });
 </script>
+
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
+</script>
+
+<script>
+$(document).ready(function(){
+  window.hapus_calon = function(id){
+  $('#button-hapus').addClass('disabled');
+    $.ajax({
+      url : '<?= base_url() ?>index.php/admin/hapus_calon',
+      type : 'post',
+      data : {id_calon : id},
+      success : function(response){
+        if (response == 1) {
+          toastr.success('Data Dihapus !!! .');
+          setTimeout(function afterFiveSeconds() {
+            console.log('wait')
+          }, 5000);
+          location.href = "<?= base_url()?>index.php/admin/data_calon";
+        }else if (response == 2) {
+          $('#button-hapus').removeClass('disabled');
+          toastr.error('Data Gagal Dihapus !!! .');
+        }else if (response == 3) {
+          $('#button-hapus').removeClass('disabled');
+          toastr.warning('Data Gagal Dihapus Karena Menggunakan Foto Default !!! .');
+        }
+      }
+    });
+  }
+
+
+});
+</script>
+
+<!-- <script type="text/javascript">
+  $(function() {
+    $('.toastrDefaultSuccess').click(function() {
+      toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
+  });
+
+</script> -->
+
 
 </body>
 </html>

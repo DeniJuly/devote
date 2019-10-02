@@ -38,26 +38,8 @@ class Admin extends CI_Controller {
 
 	public function bar_diagram()
 	{
-		$id1=array("pemilihan.id_calon"=>1,"calon.id_calon"=>1);
-		$id2=array("pemilihan.id_calon"=>2,"calon.id_calon"=>2);
-		$id3=array("pemilihan.id_calon"=>3,"calon.id_calon"=>3);
-		$dt['calon1'] = $this->M_pemilihan->join_calon_pemilihan($id1)->result();
-		$dt['calon2'] = $this->M_pemilihan->join_calon_pemilihan($id2)->result();
-		$dt['calon3'] = $this->M_pemilihan->join_calon_pemilihan($id3)->result();
-
-		foreach ($dt['calon1'] as $d1) {
-		foreach ($dt['calon2'] as $d2) {
-		foreach ($dt['calon3'] as $d3) {
-			$data['sa'] = json_encode(array(
-					array("id"=>$d1->id_calon,"nama"=>$d1->nama_calon,"data"=>count($dt['calon1'])),
-					array("id"=>$d2->id_calon,"nama"=>$d2->nama_calon,"data"=>count($dt['calon2'])),
-					array("id"=>$d3->id_calon,"nama"=>$d3->nama_calon,"data"=>count($dt['calon3']))
-				));
-			// print_r($data);
-			// exit();
-		}	
-		}
-		}
+		$dt = $this->M_pemilihan->join_calon_pemilihan()->result();
+		$data['sa'] = json_encode($dt);
 
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/bar_diagram',$data);
@@ -66,26 +48,8 @@ class Admin extends CI_Controller {
 
 	public function pie_diagram()
 	{
-		$id1=array("pemilihan.id_calon"=>1,"calon.id_calon"=>1);
-		$id2=array("pemilihan.id_calon"=>2,"calon.id_calon"=>2);
-		$id3=array("pemilihan.id_calon"=>3,"calon.id_calon"=>3);
-		$dt['calon1'] = $this->M_pemilihan->join_calon_pemilihan($id1)->result();
-		$dt['calon2'] = $this->M_pemilihan->join_calon_pemilihan($id2)->result();
-		$dt['calon3'] = $this->M_pemilihan->join_calon_pemilihan($id3)->result();
-
-		foreach ($dt['calon1'] as $d1) {
-		foreach ($dt['calon2'] as $d2) {
-		foreach ($dt['calon3'] as $d3) {
-			$data['sa'] = json_encode(array(
-					array("id"=>$d1->id_calon,"label"=>$d1->nama_calon,"y"=>count($dt['calon1'])),
-					array("id"=>$d2->id_calon,"label"=>$d2->nama_calon,"y"=>count($dt['calon2'])),
-					array("id"=>$d3->id_calon,"label"=>$d3->nama_calon,"y"=>count($dt['calon3']))
-				));
-			// print_r($data);
-			// exit();
-		}	
-		}
-		}
+		$dt = $this->M_pemilihan->join_calon_pemilihan_pie()->result();
+		$data['sa'] = json_encode($dt);
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/pie_diagram', $data);
 		$this->load->view('admin/footer');
@@ -98,11 +62,113 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 
-	public function edit_calon($id)
+	public function detail_calon($id)
 	{
+		$id = $this->uri->segment(3);
+		$dec = decrypt_url($id);
+		$where = array("id_calon"=>$dec);
+		$data['calon'] = $this->M_calon->some($where)->result();
 		$this->load->view('admin/header');
-		$this->load->view('admin/page/edit_calon');
+		$this->load->view('admin/page/detail_calon',$data);
 		$this->load->view('admin/footer');
+	}
+
+	public function tambah_calon()
+	{
+		$nama = $this->input->post('nama_calon');
+		$visi = $this->input->post('text-visi');
+		$misi = $this->input->post('text-misi');
+
+		date_default_timezone_set('Asia/Jakarta');
+		$tanggal = date("d-M-Y");
+		$tgl_pembuatan = date('Y-m-d');
+
+		$config['upload_path']  ="./public/img/foto_calon/";
+        $config['allowed_types']='gif|jpg|png';
+        $config['file_name']	= $nama.'-'.$tanggal;
+         
+        $this->load->library('upload',$config);
+        if($this->upload->do_upload("foto_calon")){
+            $data = $this->upload->data();
+            $data_calon = array(
+            	'nama_calon'		=> $nama,
+            	'visi'				=> $visi,
+            	'misi'				=> $misi,
+            	'foto'				=> $data['file_name']
+            );
+            $ins = $this->M_calon->ins($data_calon);
+            if ($ins == 1) {
+            	echo 1;
+            }else{
+            	echo 2;
+            }
+        }else{
+        	echo 3;
+        	$error = array('error' => $this->upload->display_errors());
+        	print_r($error);
+        }
+	}
+
+	public function edit_calon()
+	{
+		$id_calon = $this->input->post('id_calon');
+		$where = array("id_calon"=>$id_calon);
+
+		$nama = $this->input->post('nama_calon');
+		$visi = $this->input->post('text-visi');
+		$misi = $this->input->post('text-misi');
+
+		date_default_timezone_set('Asia/Jakarta');
+		$tanggal = date("d-M-Y");
+		$tgl_pembuatan = date('Y-m-d');
+
+		$config['upload_path']  ="./public/img/foto_calon/";
+        $config['allowed_types']='gif|jpg|png';
+        $config['file_name']	= $nama.'-'.$tanggal;
+         
+        $this->load->library('upload',$config);
+        if($this->upload->do_upload("foto_calon")){
+            $data = $this->upload->data();
+            
+            $get_calon_by_id = $this->M_calon->some($where)->row();
+			unlink("./public/img/foto_calon/".$get_calon_by_id->foto);
+
+            $data_calon = array(
+            	'nama_calon'		=> $nama,
+            	'visi'				=> $visi,
+            	'misi'				=> $misi,
+            	'foto'				=> $data['file_name']
+            );
+            $update = $this->M_calon->upd($where,$data_calon);
+            if ($update == 1) {
+            	echo 1;
+            }else{
+            	echo 2;
+            }
+        }else{
+        	echo 3;
+        	$error = array('error' => $this->upload->display_errors());
+        	print_r($error);
+        }
+	}
+
+	public function hapus_calon()
+	{
+		$id_calon = $this->input->post('id_calon');
+		$where = array("id_calon"=>$id_calon);
+		$get_calon_by_id = $this->M_calon->some($where)->row();
+		if ($get_calon_by_id->foto == "default.png") {
+			echo 3;
+		}else{
+			unlink("./public/img/foto_calon/".$get_calon_by_id->foto);
+			$where = array('id_calon'=>$id_calon);
+			$del = $this->M_calon->del($where);
+			if ($del ) {
+				echo 1;
+			}else{
+				echo 2;
+			}
+		}
 	}
 }
 
