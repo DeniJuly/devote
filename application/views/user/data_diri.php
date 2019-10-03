@@ -31,25 +31,29 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-10 col-md-3 col-lg-3 offset-1 offset-md-1 offset-lg-1">
-                        <img src="<?= base_url() ?>public/img/deni.jpg" alt="foto profile" class="img-responsive img-profile">
+                        <img src="<?= base_url() ?>public/img/deni.JPG" alt="foto profile" class="img-responsive img-profile">
                     </div>
                     <div class="col-12 col-md-8 col-lg-8 offset-0">
                         <table class="table-data_diri">
                             <tr>
                                 <td>NIS</td>
-                                <td>: 14903</td>
+                                <td>: <?= $data_diri['id_user']?></td>
                             </tr>
                             <tr>
                                 <td>Nama</td>
-                                <td>: Deni Juli Setiawan</td>
+                                <td>: <?= $data_diri['nama']?></td>
                             </tr>
                             <tr>
                                 <td>Kelas</td>
-                                <td>: XII RPL 2</td>
+                                <td>: <?= $data_diri['nama_kelas']?></td>
                             </tr>
                             <tr>
                                 <td>Jenis Kelamin</td>
-                                <td>: Laki-Laki</td>
+                                <?php if ($data_diri['id_user'] == 1) { ?>
+                                   <td>: Laki-Laki</td>
+                                <?php } else {?>
+                                    <td>: Laki-Laki</td>
+                                <?php } ?>
                             </tr>
                         </table>
                     </div>

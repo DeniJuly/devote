@@ -20,6 +20,25 @@ class M_user extends CI_Model {
 		$this->db->join('kelas','user.id_kelas = kelas.id_kelas');
 		return $this->db->get();
 	}
+	function cek_session($token,$nis){
+		$result = $this->db->where('id_user',$nis)
+							->limit(1)
+							->get('user');
+		if ($result->num_rows() > 0 ) {
+			$field = $result->row('token');
+			if ($token == $field) {
+				return $result->row();
+			} else {
+				echo "wrong token lurr";
+			}
+		}
+	}
+	function get_user($id){
+		$data = $this->db->select('user.*,kelas.nama_kelas')->from('user')->join('kelas','kelas.id_kelas = user.id_kelas','left')->where('user.id_user',$id)->group_by('user.id_user')->get();
+		$all = $data->row_array();
+		return $all;
+
+	}
 
 }
 

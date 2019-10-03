@@ -35,7 +35,7 @@
                         <div class="row">
                             <h6 class="title-card m-auto">Sahid Anwar - Risqi Ardiansyah</h6>
                             <div class="col-10 col-md-6 col-lg-6 offset-1 offset-md-3 offset-lg-3">
-                                <img src="<?= base_url() ?>public/img/deni.jpg" alt="foto profile" class="img-responsive img-profile">
+                                <img src="<?= base_url() ?>public/img/deni.JPG" alt="foto profile" class="img-responsive img-profile">
                             </div>
                         </div>
                         <div class="button-footer">

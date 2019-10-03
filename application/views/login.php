@@ -47,7 +47,7 @@
 		</div>
 		<div class="container container-login">
 			<h1>LOGIN</h1>
-			<form action="<?= base_url() ?>index.php/Login/login_process" method="POST">
+			<form method="POST">
 				<div class="form-group">
 					<label for="nis" class="label-login color-green">Nis</label>
 					<input
@@ -56,6 +56,7 @@
 						id="nis"
 						placeholder="masukan nis"
 						autofocus="on"
+						name="nis"
 					/>
 				</div>
 				<div class="form-group">
@@ -65,10 +66,11 @@
 						class="form-control bg-input rounded-0"
 						id="token"
 						placeholder="masukan token"
+						name="token"
 					/>
 				</div>
 				<div class="login-btn">
-					<button class="btn login">MASUK</button>
+					<button class="btn login" type="submit">MASUK</button>
 				</div>
 			</form>
 			</div>
