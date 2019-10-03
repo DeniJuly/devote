@@ -9,7 +9,20 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url() ?>public/css/bootstrap/bootstrap.min.css"/>
   <link rel="stylesheet" href="<?= base_url() ?>public/admin/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>public/admin/plugins/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="<?= base_url() ?>public/admin/plugins/toastr/toastr.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>public/admin/dist/css/adminlte.min.css">
+  <script src="<?= base_url() ?>public/sweetalert/sweetalert2.all.min.js"></script>
+  
+<script src="<?= base_url() ?>public/admin/plugins/jquery/jquery.min.js"></script>
+<script src="<?= base_url() ?>public/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?= base_url() ?>public/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="<?= base_url() ?>public/admin/dist/js/adminlte.js"></script>
+<script src="<?= base_url() ?>public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= base_url() ?>public/admin/plugins/dt/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<script src="<?= base_url() ?>public/admin/plugins/dt/datatables/jquery.dataTables.js"></script>
+<script src="<?= base_url() ?>public/admin/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="<?= base_url() ?>public/admin/plugins/toastr/toastr.min.js"></script>
   <!-- Morris / Chart -->
   <link rel="stylesheet" href="<?= base_url() ?>public/admin/morris/css/morris.css">
   <!-- overlayScrollbars -->

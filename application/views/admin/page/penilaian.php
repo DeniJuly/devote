@@ -2,6 +2,9 @@
   .checked{
     color: #FFEC19;
   }
+  .unchecked{
+    color: #E1E1E1;
+  }
   .checked-grin{
     color: #FFC100;
   }
@@ -23,16 +26,77 @@
         <div class="col-12">
 
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Data Penilaian Osis Tahun Sebelum</h3>
+            <div class="card-header d-flex p-0">
+              <h3 class="card-title p-3">Data Penilaian Osis Tahun Sebelum</h3>
+              
+              <ul class="nav nav-pills ml-auto p-2">
+                <li class="nav-item">
+                  Rata-rata :
+                <?php foreach ($avg as $rata2): ?>
+                  <?php if ($rata2->penilaian == 5): ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                  <?php elseif ($rata2->penilaian == 4): ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                  <?php elseif ($rata2->penilaian == 3): ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                  <?php elseif ($rata2->penilaian == 2): ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                  <?php elseif ($rata2->penilaian == 1): ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                  <?php elseif ($rata2->penilaian < 5 && $rata2->penilaian > 4): ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-alt checked"></span>
+                  <?php elseif ($rata2->penilaian < 4 && $rata2->penilaian > 3): ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-alt checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                  <?php elseif ($rata2->penilaian < 3 && $rata2->penilaian > 2): ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-alt checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                  <?php elseif ($rata2->penilaian < 2 && $rata2->penilaian > 1): ?>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star-half-alt checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                <?php endif ?>
+              <?= strval(substr($rata2->penilaian, 0, 3)) ?>
+              <?php endforeach ?>
+                </li>
+              </ul>
             </div>
             <div class="card-body p-0">
               <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
-                          No.
-                      </th>
                       <th style="width: 30%">
                           Pemilih
                       </th>
@@ -45,116 +109,65 @@
                   </tr>
               </thead>
               <tbody>
+                <?php foreach ($penilaian as $p): ?>
                   <tr>
-                      <td>1.</td>
                       <td>
-                          <a>Pardiminmin</a>
+                          <a><?= $p->nama ?></a>
                           <br/>
-                          <small>Rekayasa Perangkat Lunak</small>
+                          <small><?= $p->nama_kelas ?></small>
                       </td>
                       <td>
                           <ul class="list-inline">
                               <li class="list-inline-item">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
+                                <?php if ($p->penilaian == 5) { ?>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                <?php } elseif ($p->penilaian == 4) { ?>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                <?php }elseif ($p->penilaian == 3) { ?>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                <?php }elseif ($p->penilaian == 2) { ?>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                <?php }else { ?>
+                                  <span class="fa fa-star checked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                  <span class="fa fa-star unchecked"></span>
+                                <?php } ?>
                               </li>
                           </ul>
                       </td>
                       <td>
+                        <?php if ($p->penilaian == 5) { ?>
                           <span class="far fa-grin-stars checked fa-3x"></span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>2.</td>
-                      <td>
-                          <a>Pardiminmin</a>
-                          <br/>
-                          <small>Rekayasa Perangkat Lunak</small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                              </li>
-                          </ul>
-                      </td>
-                      <td>
+                        <?php } elseif ($p->penilaian == 4) { ?>
                           <span class="far fa-grin checked-grin fa-3x"></span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>3.</td>
-                      <td>
-                          <a>Pardiminmin</a>
-                          <br/>
-                          <small>Rekayasa Perangkat Lunak</small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star "></span>
-                                <span class="fa fa-star"></span>
-                              </li>
-                          </ul>
-                      </td>
-                      <td>
+                        <?php }elseif ($p->penilaian == 3) { ?>
                           <span class="far fa-meh checked-meh fa-3x"></span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>4.</td>
-                      <td>
-                          <a>Pardiminmin</a>
-                          <br/>
-                          <small>Rekayasa Perangkat Lunak</small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                              </li>
-                          </ul>
-                      </td>
-                      <td>
+                        <?php }elseif ($p->penilaian == 2) { ?>
                           <span class="far fa-frown checked-frown fa-3x"></span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>5.</td>
-                      <td>
-                          <a>Pardiminmin</a>
-                          <br/>
-                          <small>Rekayasa Perangkat Lunak</small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                              </li>
-                          </ul>
-                      </td>
-                      <td>
+                        <?php }else { ?>
                           <span class="far fa-sad-tear checked-sad fa-3x"></span>
+                        <?php } ?>
                       </td>
                   </tr>
+                <?php endforeach ?>
               </tbody>
           </table>
             </div>
