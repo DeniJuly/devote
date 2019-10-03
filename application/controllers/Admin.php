@@ -9,12 +9,14 @@ class Admin extends CI_Controller {
 		$this->load->model('M_calon');
 		$this->load->model('M_user');
 		$this->load->model('M_pemilihan');
+		$this->load->model('M_penilaian');
 	}
 
 	public function index()
 	{
 		$data['calon'] = $this->M_calon->get()->result();
 		$data['user'] = $this->M_user->join_user_kelas()->result();
+		$data['feedback'] = $this->M_penilaian->join_three()->result();
 		$this->load->view('admin/header');
 		$this->load->view('admin/dashboard', $data);
 		$this->load->view('admin/footer');
@@ -57,8 +59,12 @@ class Admin extends CI_Controller {
 
 	public function penilaian()
 	{
+		$dt['penilaian'] = $this->M_penilaian->join_three()->result();
+		// $test = substr(($dt->num_rows() / $this->M_user->get()->num_rows()) * 100, 0, 4) . '%';
+		$dt['avg'] = $this->M_penilaian->avg()->result();
+		
 		$this->load->view('admin/header');
-		$this->load->view('admin/page/penilaian');
+		$this->load->view('admin/page/penilaian',$dt);
 		$this->load->view('admin/footer');
 	}
 

@@ -29,7 +29,7 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-info">
             <div class="inner">
-              <h3><?php echo count($user); ?></h3>
+              <h3><?php echo count($user)." Data"; ?></h3>
               <p>Pemilih</p>
             </div>
             <div class="icon">
@@ -42,7 +42,7 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>200</h3>
+              <h3><?php echo count($feedback)." Data"; ?></h3>
               <p>Feedback</p>
             </div>
             <div class="icon">
@@ -55,7 +55,7 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-primary">
             <div class="inner">
-              <h3>Diagram</h3>
+              <h3>2 Diagram</h3>
               <p>Hasil Sementara</p>
             </div>
             <div class="icon">
