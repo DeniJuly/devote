@@ -5,9 +5,9 @@ class Devote extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		if($this->session->userdata('id_user')==null){
-			redirect(site_url('Login'));
-		}
+		// if($this->session->userdata('id_user')==null){
+		// 	redirect(site_url('Login'));
+		// }
 		$this->load->model('M_user');
 	}
 	public function index()
