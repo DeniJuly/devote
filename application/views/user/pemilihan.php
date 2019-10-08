@@ -45,40 +45,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-6">
-                <div class="card card-data_diri">
-                    <div class="title-calon"><h4>PASLON 2</h4></div>
-                    <div class="card-body">
-                        <div class="row">
-                            <h6 class="title-card m-auto">Sahid Anwar - Risqi Ardiansyah</h6>
-                            <div class="col-10 col-md-6 col-lg-6 offset-1 offset-md-3 offset-lg-3">
-                                <img src="<?= base_url() ?>public/img/deni.jpg" alt="foto profile" class="img-responsive img-profile">
-                            </div>
-                        </div>
-                        <div class="button-footer">
-                            <a href="<?= site_url() ?>/devote/pemilihan" class="btn btn-pilih" disabled="disabled">Pilih</a>
-                            <a href="<?= site_url() ?>/devote/pemilihan" class="btn btn-visi_misi" disabled="disabled">Visi Misi</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-6">
-                <div class="card card-data_diri">
-                    <div class="title-calon"><h4>PASLON 3</h4></div>
-                    <div class="card-body">
-                        <div class="row">
-                            <h6 class="title-card m-auto">Sahid Anwar - Risqi Ardiansyah</h6>
-                            <div class="col-10 col-md-6 col-lg-6 offset-1 offset-md-3 offset-lg-3">
-                                <img src="<?= base_url() ?>public/img/deni.jpg" alt="foto profile" class="img-responsive img-profile">
-                            </div>
-                        </div>
-                        <div class="button-footer">
-                            <a href="<?= site_url() ?>/devote/pemilihan" class="btn btn-pilih" disabled="disabled">Pilih</a>
-                            <a href="<?= site_url() ?>/devote/pemilihan" class="btn btn-visi_misi" disabled="disabled">Visi Misi</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <script src="<?= base_url() ?>public/js/fontawesome/fontawesome.js"></script>
