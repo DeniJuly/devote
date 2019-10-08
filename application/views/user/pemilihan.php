@@ -28,13 +28,14 @@
 				<h1>PEMILIHAN</h1>
 			</div>
 			<div class="row">
+				<?php foreach ($calon as $calon) { ?>
 				<div class="col-12 col-md-6 col-lg-6">
 					<div class="card card-data_diri">
 						<div class="title-calon"><h4>PASLON 1</h4></div>
 						<div class="card-body">
 							<div class="container">
 								<h6 class="title-card m-auto">
-									Sahid Anwar - Risqi Ardiansyah
+									<?= $calon['nama_calon'] ?>
 								</h6>
 								<div class="row" style="padding:20px;">
 									<img
@@ -61,72 +62,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-md-6 col-lg-6">
-					<div class="card card-data_diri">
-						<div class="title-calon"><h4>PASLON 1</h4></div>
-						<div class="card-body">
-							<div class="container">
-								<h6 class="title-card m-auto">
-									Sahid Anwar - Risqi Ardiansyah
-								</h6>
-								<div class="row" style="padding:20px;">
-									<img
-										src="<?= base_url() ?>public/img/example.jpg"
-										alt="foto profile"
-										class="img-responsive img-profile"
-									/>
-								</div>
-								<div class="row mt-3 button-footer">
-									<a
-										href="<?= site_url() ?>/devote/pemilihan"
-										class="btn btn-visi_misi col-sm-4 col-4 offset-1"
-										disabled="disabled"
-										>Visi Misi</a
-									>
-									<a
-										href="<?= site_url() ?>/devote/pemilihan"
-										class="btn btn-pilih col-sm-5 col-5 offset-1"
-										disabled="disabled"
-										>Pilih</a
-									>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-6 col-lg-6">
-					<div class="card card-data_diri">
-						<div class="title-calon"><h4>PASLON 1</h4></div>
-						<div class="card-body">
-							<div class="container">
-								<h6 class="title-card m-auto">
-									Sahid Anwar - Risqi Ardiansyah
-								</h6>
-								<div class="row" style="padding:20px;">
-									<img
-										src="<?= base_url() ?>public/img/example.jpg"
-										alt="foto profile"
-										class="img-responsive img-profile"
-									/>
-								</div>
-								<div class="row mt-3 button-footer">
-									<a
-										href="<?= site_url() ?>/devote/pemilihan"
-										class="btn btn-visi_misi col-sm-4 col-4 offset-1"
-										disabled="disabled"
-										>Visi Misi</a
-									>
-									<a
-										href="<?= site_url() ?>/devote/pemilihan"
-										class="btn btn-pilih col-sm-5 col-5 offset-1"
-										disabled="disabled"
-										>Pilih</a
-									>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			<?php } ?>
 			</div>
 		</div>
 		<footer>

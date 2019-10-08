@@ -29,8 +29,8 @@ class Devote extends CI_Controller {
 
 	public function pemilihan()
 	{
-		$data['calon'] = $this->M_user->get();
-		$this->load->view('user/pemilihan');
+		$data['calon'] = $this->M_user->get("calon");
+		$this->load->view('user/pemilihan',$data);
 	}
 
 	public function aspirasi()
@@ -48,6 +48,14 @@ class Devote extends CI_Controller {
 			'penilaian'=>$rate
 		);
 		$isi = $this->M_user->add_rate('penilaian',$data);
+	}
+	function input_aspirasi(){
+		$id = $this->session->userdata('id_user');
+		$data = array(
+				"id_user" => $id,
+				"isi"	  => $this->input->post('isi')
+		);
+		$this->M_user->input('')
 	}
 
 }

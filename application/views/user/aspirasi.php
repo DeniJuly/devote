@@ -31,14 +31,14 @@
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="card card-data_diri">
                     <div class="card-body">
-                        <form action="" class="form">
+                        <form action="<?= site_url()?>/devote/input_aspirasi" method="post" class="form">
                             <div class="form-group">
-                                <textarea name="" id="" class="form-control" placeholder="Aspirasi..."></textarea>
+                                <textarea name="isi" id="" class="form-control" placeholder="Aspirasi..."></textarea>
                                 <!-- <a href="<?= site_url()?>/devote/keluar" class="btn btn-kirim">Kirim</a> -->
                             </div>
                             <div class="button">
-                                <a href="<?= site_url()?>/devote/keluar" class="btn btn-lanjut">Lewati</a>
-                                <a href="<?= site_url()?>/devote/ulasan" class="btn btn-kirim">Kirim</a>
+                                <a href="<?= site_url()?>/devote/login/logout" class="btn btn-lanjut">Lewati</a>
+                                <button type="submit" class="btn btn-kirim">Kirim</button>
                             </div>
                         </form>
                     </div>

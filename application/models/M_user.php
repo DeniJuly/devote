@@ -5,7 +5,7 @@ class M_user extends CI_Model {
 
 	public function get($table)
 	{
-		return $this->db->get($table);
+		return $this->db->get($table)->result_array();
 	}
 	public function get_where($table,$where){
 		return $this->db->get_where($table,$where)->row_array();
