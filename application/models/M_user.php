@@ -3,6 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_user extends CI_Model {
 
+	// AJA DIHAPUSI !!
+	public $tb = 'user';
+	public $id = 'id_user';
+
 	public function get($table)
 	{
 		return $this->db->get($table);
@@ -37,6 +41,10 @@ class M_user extends CI_Model {
 		$all = $data->row_array();
 		return $all;
 
+	}
+	public function jml_user()
+	{
+		return $this->db->query("SELECT COUNT(*) as data FROM user");
 	}
 	function add_rate($table,$data){
 		$id = $this->session->userdata('id_user');

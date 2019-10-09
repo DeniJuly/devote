@@ -104,8 +104,8 @@
   	  </div>
       <br>
  	  <div class="form-group">
- 	  	<label>Foto Calon :</label>
- 	  	<input type="file" class="form-control" name="foto_calon" id="foto_calon">
+ 	  	<label>Foto Calon :</label><br>
+ 	  	<input type="file"name="foto_calon" id="foto_calon">
  	  </div>
     </div>
     <div class="modal-footer justify-content-between">
@@ -184,8 +184,8 @@ $(document).ready(function(){
 	 	  </div>
 	 	  <br>
 	 	  <div class="form-group">
-	 	  	<label>Foto Calon :</label>
-	 	  	<input type="file" class="form-control" name="foto_calon" id="foto_calon">
+	 	  	<label for="foto_calon">Foto Calon :</label><br>
+	 	  	<input type="file" name="foto_calon" id="foto_calon">
 	 	  </div>
 	    </div>
 	    <div class="modal-footer justify-content-between">
@@ -228,10 +228,6 @@ $(document).ready(function(){
     });
 });
 </script>
-
-<?php foreach ($calon as $dt): ?>
-
-<?php endforeach ?>
 
 </section>
 </div>
