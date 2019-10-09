@@ -34,7 +34,7 @@
                         <div class="row">
                             <h6 class="title-card m-auto">Ketua OSIS dan Wakil Ketua Osis Periode 2018/2019</h6>
                             <div class="col-10 col-md-6 col-lg-6 offset-1 offset-md-3 offset-lg-3">
-                                <img src="<?= base_url() ?>public/img/deni.JPG" alt="foto profile" class="img-responsive img-profile">
+                                <img src="<?= base_url() ?>public/img/<?= $osis['foto']?>" alt="foto profile" class="img-responsive img-profile">
                             </div>
                         </div>
                     </div>
@@ -66,12 +66,23 @@
     <script src="<?= base_url() ?>public/js/jquery.js"></script>
     <script>
         $(document).ready(function(){
+            var id_calon = "<?= $osis['id_calon']?>";
             window.rate = function (sum) {  
                 if(sum=="1"){
                     $(".btn-rate").css("color","#d7d6d6");
                     $(".rate-1").css("color","#EC8956");
                     $("#rate-text").text("Cukup...");
                     $(".btn-lanjut").removeAttr("disabled");
+                     var rate = 1;
+                     $.ajax({
+                      url:"<?= site_url('devote/rate_old_ossis');?>",
+                      method:"POST",
+                      data:{rate:rate,id_calon:id_calon},
+                      success:function(data){
+                       
+                      }
+                     })
+
                 }
                 if(sum=="2"){
                     $(".btn-rate").css("color","#d7d6d6");
@@ -79,6 +90,15 @@
                     $(".rate-2").css("color","#EC8956");
                     $("#rate-text").text("Cukup Bagus...");
                     $(".btn-lanjut").removeAttr("disabled");
+                       var rate = 2;
+                     $.ajax({
+                      url:"<?= site_url('devote/rate_old_ossis');?>",
+                      method:"POST",
+                      data:{rate:rate,id_calon:id_calon},
+                      success:function(data){
+                       
+                      }
+                     })
                 }
                 if(sum=="3"){
                     $(".btn-rate").css("color","#d7d6d6");
@@ -87,6 +107,15 @@
                     $(".rate-3").css("color","#EC8956");
                     $("#rate-text").text("Bagus...");
                     $(".btn-lanjut").removeAttr("disabled");
+                       var rate = 3;
+                     $.ajax({
+                      url:"<?= site_url('devote/rate_old_ossis');?>",
+                      method:"POST",
+                      data:{rate:rate,id_calon:id_calon},
+                      success:function(data){
+                       
+                      }
+                     })
                 }
                 if(sum=="4"){
                     $(".btn-rate").css("color","#d7d6d6");
@@ -96,6 +125,15 @@
                     $(".rate-4").css("color","#EC8956");
                     $("#rate-text").text("Sangat Bagus...");
                     $(".btn-lanjut").removeAttr("disabled");
+                       var rate = 4;
+                     $.ajax({
+                      url:"<?= site_url('devote/rate_old_ossis');?>",
+                      method:"POST",
+                      data:{rate:rate,id_calon:id_calon},
+                      success:function(data){
+                       
+                      }
+                     })
                 }
                 if(sum=="5"){
                     $(".btn-rate").css("color","#d7d6d6");
@@ -106,6 +144,15 @@
                     $(".rate-5").css("color","#EC8956");
                     $("#rate-text").text("Duar...");
                     $(".btn-lanjut").removeAttr("disabled");
+                       var rate = 5;
+                     $.ajax({
+                      url:"<?= site_url('devote/rate_old_ossis');?>",
+                      method:"POST",
+                      data:{rate:rate,id_calon:id_calon},
+                      success:function(data){
+                       
+                      }
+                     })
                 }
             }
         });

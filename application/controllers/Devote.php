@@ -5,9 +5,9 @@ class Devote extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		// if($this->session->userdata('id_user')==null){
-		// 	redirect(site_url('Login'));
-		// }
+		if($this->session->userdata('id_user')==null){
+			redirect(site_url('Login'));
+		}
 		$this->load->model('M_user');
 	}
 	public function index()
@@ -20,11 +20,16 @@ class Devote extends CI_Controller {
 
 	public function ulasan()
 	{
-		$this->load->view('user/ulasan');
+		$where = array(
+			"jenis_calon" => 'OSIS'
+		);
+		$data['osis'] = $this->M_user->get_where('calon',$where);
+		$this->load->view('user/ulasan',$data);
 	}
 
 	public function pemilihan()
 	{
+		$data['calon'] = $this->M_user->get();
 		$this->load->view('user/pemilihan');
 	}
 
@@ -32,4 +37,17 @@ class Devote extends CI_Controller {
 	{
 		$this->load->view('user/aspirasi');
 	}
+	function rate_old_ossis()
+	{
+		$id = $this->session->userdata('id_user');
+		$rate = $this->input->post('rate');
+		$id_calon = $this->input->post('id_calon');
+		$data= array(
+			'id_calon' =>$id_calon,
+			'id_user'  => $id,
+			'penilaian'=>$rate
+		);
+		$isi = $this->M_user->add_rate('penilaian',$data);
+	}
+
 }
