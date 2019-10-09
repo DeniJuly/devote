@@ -42,8 +42,6 @@ class Admin extends CI_Controller {
 	{
 		$dt = $this->M_pemilihan->join_calon_pemilihan()->result();
 		$data['sa'] = json_encode($dt);
-		print_r($data['sa']);
-		die();
 
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/bar_diagram',$data);

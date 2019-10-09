@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_user extends CI_Model {
 	public $tb = 'user';
 	
-	public function get($table)
+	public function get()
 	{
-		return $this->db->get($table);
+		return $this->db->get($this->tb);
 	}
 	public function get_where($table,$where){
 		return $this->db->get_where($table,$where)->row_array();

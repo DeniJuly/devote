@@ -5,10 +5,11 @@ class Devote extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		if($this->session->userdata('id_user')==null){
-			redirect(site_url('Login'));
-		}
+		// if($this->session->userdata('id_user')==null){
+		// 	redirect(site_url('Login'));
+		// }
 		$this->load->model('M_user');
+		$this->load->model('M_calon');
 	}
 	public function index()
 	{
@@ -29,7 +30,9 @@ class Devote extends CI_Controller {
 
 	public function pemilihan()
 	{
-		$data['calon'] = $this->M_user->get();
+		$data['calon'] = $this->M_calon->get()->result();
+		// print_r($data['calon']);
+		// die();
 		$this->load->view('user/pemilihan');
 	}
 
