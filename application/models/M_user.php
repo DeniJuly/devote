@@ -3,14 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_user extends CI_Model {
 
-	public $tb = 'user';
-	public $id = 'id_user';
-
-	public function get()
+	public function get($table)
 	{
-		return $this->db->get($this->tb);
+		return $this->db->get($table);
 	}
-
+	public function get_where($table,$where){
+		return $this->db->get_where($table,$where)->row_array();
+	}
 	public function join_user_kelas()
 	{
 		$this->db->select('
@@ -38,6 +37,17 @@ class M_user extends CI_Model {
 		$all = $data->row_array();
 		return $all;
 
+	}
+	function add_rate($table,$data){
+		$id = $this->session->userdata('id_user');
+		$result = $this->db->where('id_user',$id)
+							->get($table);
+		if ($result->num_rows() > 0 ) {
+		$this->db->where('id_user',$id);
+		$this->db->update($table,$data);
+		}else{
+		$this->db->insert($table,$data);
+	}
 	}
 
 }
