@@ -200,6 +200,7 @@ $(document).ready(function(){
 <script>
 $(document).ready(function(){
 	$('#FORM_TAMBAH').submit(function(e){
+		$('#btn-smp').addClass('disabled');
         e.preventDefault(); 
         $.ajax({
             url:'<?= base_url() ?>index.php/admin/tambah_calon',
@@ -220,6 +221,7 @@ $(document).ready(function(){
                   });
               }else if (response == 2) {
                 toastr.error('Data Gagal Ditambahkan !!! .');
+                $('#btn-smp').removeClass('disabled');
               }
             }
         });
