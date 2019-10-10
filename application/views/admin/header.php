@@ -54,7 +54,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="#" style="color: red;" title="Keluar">
+        <a href="<?= base_url() ?>index.php/Login/logout " class="nav-link" href="#" style="color: red;" title="Keluar">
           <i class="fas fa-sign-out-alt fa-2x"></i>
         </a>
       </li>
