@@ -88,13 +88,14 @@ body {
 }
 
 .btn-kirim {
-	width: 60%;
+	width: 100%;
 	background: #2cb778;
-	border-radius: 0px 10px 10px 0px;
-	height: 42px;
+	height: 38px;
 	font-family: poppins-light;
 	color: #fff;
-	font-size: 18px;
+	font-size: 16px;
+	border: none;
+	border-radius: 8px;
 }
 
 .rate-text {
@@ -113,6 +114,49 @@ body {
 .button {
 	margin-top: 20px;
 	width: 100%;
+}
+/* my styles */
+h5 {
+	font-family: "Poppins-Medium";
+}
+
+#aspirasi {
+	height: 120px;
+	margin-top: 40px;
+	background-color: #f4f4f4;
+	border-radius: 15px;
+	padding: 20px;
+	border: none;
+}
+
+@media only screen and (max-width: 480px) {
+	.all-harapan {
+		position: relative;
+		background-color: red;
+	}
+
+	.harapan {
+		padding: 20px 50px;
+	}
+
+	.harapan p {
+		text-align: center;
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 10px;
+	}
+
+	.photo {
+		width: 64px;
+		height: 64px;
+		margin-left: 50%;
+		transform: translate(-50%, 0%);
+	}
+
+	.photo img {
+		border-radius: 50%;
+		border: 3px solid #2cb778;
+	}
 }
 
 @media only screen and (min-width: 768px) {
