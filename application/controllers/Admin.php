@@ -6,6 +6,9 @@ class Admin extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if ($this->session->userdata('username') == "") {
+			redirect('login/login_admin');
+		}
 		$this->load->model('M_calon');
 		$this->load->model('M_user');
 		$this->load->model('M_pemilihan');
@@ -33,6 +36,8 @@ class Admin extends CI_Controller {
 	public function data_pemilih()
 	{
 		$data['user'] = $this->M_user->join_user_kelas()->result();
+		$data['jumlah_user'] = $this->M_user->jml_user()->result();
+		$data['jumlah_pemilih'] = $this->M_pemilihan->jml_pemilih()->result();
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/data_pemilih', $data);
 		$this->load->view('admin/footer');

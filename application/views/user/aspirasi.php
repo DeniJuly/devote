@@ -45,51 +45,22 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6 col-aspirasi">
+                <?php foreach ($aspirasi as $aspirasi ) { ?>
                 <div class="card card-aspirasi">
                     <div class="card-body">
                         <div class="pengirim">
-                            <h5>Deni Juli Setiawan</h5>
+                            <h5><?= $aspirasi['nama']?></h5>
                         </div>
                         <div class="isi-aspirasi">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Nesciunt esse, nisi temporibus est similique veritatis 
+                            <p><?= $aspirasi['isi']?>
                             </p>
                         </div>
                         <div class="tanggal text-right">
-                            <p>08:00:19</p>
+                            <p><?php echo substr($aspirasi['waktu'],11,19)?></p>
                         </div>
                     </div>
                 </div>
-                <div class="card card-aspirasi">
-                    <div class="card-body">
-                        <div class="pengirim">
-                            <h5>Deni Juli Setiawan</h5>
-                        </div>
-                        <div class="isi-aspirasi">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Nesciunt esse, nisi temporibus est similique veritatis 
-                            </p>
-                        </div>
-                        <div class="tanggal text-right">
-                            <p>08:00:19</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-aspirasi">
-                    <div class="card-body">
-                        <div class="pengirim">
-                            <h5>Deni Juli Setiawan</h5>
-                        </div>
-                        <div class="isi-aspirasi">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                Nesciunt esse, nisi temporibus est similique veritatis 
-                            </p>
-                        </div>
-                        <div class="tanggal text-right">
-                            <p>08:00:19</p>
-                        </div>
-                    </div>
-                </div>
+            <?php } ?>
             </div>
         </div>
     </div>

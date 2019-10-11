@@ -64,15 +64,6 @@ $(document).ready(function(){
 });
 </script>
 
-<!-- <script type="text/javascript">
-  $(function() {
-    $('.toastrDefaultSuccess').click(function() {
-      toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
-    });
-  });
-
-</script> -->
-
 
 </body>
 </html>

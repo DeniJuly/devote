@@ -10,6 +10,11 @@ class M_pemilihan extends CI_Model {
 		return $this->db->get($this->tb);
 	}
 
+	public function jml_pemilih()
+	{
+		return $this->db->query("SELECT count(id_user) as data FROM pemilihan");
+	}
+
 	public function some($where)
 	{
 		$this->db->where($where);
@@ -46,6 +51,10 @@ class M_pemilihan extends CI_Model {
 	// 	$this->db->where($where);
 	// 	return $this->db->get();
 	// }
+	public function input($data){
+		$this->db->insert($this->tb,$data);
+	}
+	
 
 }
 

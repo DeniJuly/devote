@@ -3,12 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_user extends CI_Model {
 
+	// AJA DIHAPUSI !!
+	public $tb = 'user';
+	public $id = 'id_user';
+
 	public function get($table)
 	{
 		return $this->db->get($table)->result_array();
 	}
 	public function get_where($table,$where){
 		return $this->db->get_where($table,$where)->row_array();
+	}
+	public function get_where_calon($table,$where){
+		return $this->db->get_where($table,$where)->result_array();
 	}
 	public function join_user_kelas()
 	{
@@ -38,6 +45,10 @@ class M_user extends CI_Model {
 		return $all;
 
 	}
+	public function jml_user()
+	{
+		return $this->db->query("SELECT COUNT(*) as data FROM user");
+	}
 	function add_rate($table,$data){
 		$id = $this->session->userdata('id_user');
 		$result = $this->db->where('id_user',$id)
@@ -49,6 +60,28 @@ class M_user extends CI_Model {
 		$this->db->insert($table,$data);
 	}
 	}
+	public function input($table,$data){
+		$this->db->insert($table,$data);
+	}
+	public function get_data($table,$order_by){
+		return $this->db->select("user.nama,$table.*")
+					->from($table)
+					->join('user','user.id_user = aspirasi.id_user','left')
+					->order_by($order_by,"ASC")
+					->limit(3)
+					->get()
+					->result_array();
+	}
+	function cek_field($table,$id){
+		$result = $this->db->where('id_user',$id)
+							->limit(1)
+							->get($table);
+		if ($result->num_rows() > 0 ) {
+				return $result->row();
+			} else {
+				return false;
+			}
+		}
 
 }
 
