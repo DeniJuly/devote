@@ -32,10 +32,10 @@
                 <div class="row">
                     <div class="col-10 col-md-3 col-lg-3 offset-1 offset-md-1 offset-lg-1">
                         <img 
-                            <?php if ($data_diri['jenis_user'] ==  "GURU") {?>
-                            src="<?= base_url() ?>public/img/deni1.JPG"
+                            <?php if ($data_diri['jk'] ==  1) {?>
+                            src="<?= base_url() ?>public/img/icon/man.png"
                            <?php } else {?>
-                            src="<?= base_url() ?>public/img/deni.JPG"
+                            src="<?= base_url() ?>public/img/icon/girl.png"
                            <?php } ?> 
                         alt="foto profile" class="img-responsive img-profile">
                     </div>
@@ -70,10 +70,10 @@
                            <?php } else {?>
                             <tr>
                                 <td>Jenis Kelamin</td>
-                                <?php if ($data_diri['id_user'] == 1) { ?>
+                                <?php if ($data_diri['jk'] == 1) { ?>
                                    <td>: Laki-Laki</td>
                                 <?php } else {?>
-                                    <td>: Laki-Laki</td>
+                                    <td>: Perempuan</td>
                                 <?php } ?>
                             </tr>
                            <?php } ?>

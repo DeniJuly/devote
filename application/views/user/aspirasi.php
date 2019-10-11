@@ -57,7 +57,11 @@
                         <div class="harapan">
                             <p><?= $aspirasi['isi']?></p>
                             <div class="photo">
-                                <img src="<?= base_url() ?>public/img/deni.JPG" alt="photo-profile">
+                                <img <?php if ($aspirasi['jk'] ==  1) {?>
+                                        src="<?= base_url() ?>public/img/icon/man.png"
+                                       <?php } else {?>
+                                        src="<?= base_url() ?>public/img/icon/girl.png"
+                                       <?php } ?>  alt="photo-profile">
                                 <center>
                                     <span class="text-center"><?= $aspirasi['nama']?></span>
                                 </center>
