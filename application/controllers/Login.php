@@ -96,8 +96,7 @@ class Login extends CI_Controller
     	}
 	}
 	public function logout(){
-		$this->session->unset_userdata('id_user');
-		$this->session->set_flashdata('flash','Terima Kasih ');
+		$this->session->sess_destroy();
 		redirect('login');
 	}
 }
