@@ -6,8 +6,14 @@
         <div class="col-12">
 
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Data Pemilih</h3>
+            <div class="card-header d-flex p-0">
+              <h1 class="card-title p-3">Data Pemilih</h1>
+              	<ul class="nav nav-pills ml-auto p-2">
+	                <li class="nav-item">
+	                <p style="color: blue;">Total Pemilih : <?= $jumlah_pemilih[0]->data ?> / <?= $jumlah_user[0]->data ?></p>
+	                <p style="color: red;">Belum memilih / golput : <?=  $jumlah_user[0]->data - $jumlah_pemilih[0]->data ?></p>
+	                </li>
+            	</ul>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

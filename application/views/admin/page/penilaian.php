@@ -87,6 +87,8 @@
                     <span class="fa fa-star unchecked"></span>
                     <span class="fa fa-star unchecked"></span>
                     <span class="fa fa-star unchecked"></span>
+                  <?php else: ?>
+                    <span>Belum Ada Penilaian..</span>
                 <?php endif ?>
               <?= strval(substr($rata2->penilaian, 0, 3)) ?>
               <?php endforeach ?>
