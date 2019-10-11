@@ -42,13 +42,16 @@
                     <div class="col-12 col-md-8 col-lg-8 offset-0">
                         <table class="table-data_diri">
                             <?php if ($data_diri['jenis_user'] == "GURU") {?>
-                               
+                               <tr>
+                                 <td>ID User</td>
+                                 <td>: <?= $data_diri['id_user']?></td>
+                                </tr>
                            <?php } else {?>
                             <tr>
                                 <td>NIS</td>
                                 <td>: <?= $data_diri['id_user']?></td>
                             </tr>
-                        <?php } ?>
+                           <?php } ?>
                             <tr>
                                 <td>Nama</td>
                                 <td>: <?= $data_diri['nama']?></td>
@@ -62,7 +65,9 @@
                                 <td>: <?= $data_diri['nama_kelas']?></td>
                             </tr>
                         <?php } ?>
+                        <?php if ($data_diri['jenis_user'] == "GURU") {?>
 
+                           <?php } else {?>
                             <tr>
                                 <td>Jenis Kelamin</td>
                                 <?php if ($data_diri['id_user'] == 1) { ?>
@@ -71,6 +76,8 @@
                                     <td>: Laki-Laki</td>
                                 <?php } ?>
                             </tr>
+                           <?php } ?>
+
                         </table>
                     </div>
                 </div>

@@ -84,40 +84,40 @@ class Devote extends CI_Controller {
 }
 // ---- FOR KETUA MPK
 
-	public function pemilihan_ketua_mpk()
-	{
-		$table = "pemilihan";
-		$id = $this->session->userdata('id_user');
-		$valid_user = $this->M_user->cek_field($table,$id);
-		if ($valid_user == true) {
-			redirect('devote/pemilihan_wakil_mpk');
-		} else {
-		$where = array(
-			"jenis_calon" => 'KETUA'
-		);
-		$data['calon'] = $this->M_user->get_where_calon("calon",$where);
-		$this->load->view('user/pemilihan',$data);
-	}
-}
+// 	public function pemilihan_ketua_mpk()
+// 	{
+// 		$table = "pemilihan";
+// 		$id = $this->session->userdata('id_user');
+// 		$valid_user = $this->M_user->cek_field($table,$id);
+// 		if ($valid_user == true) {
+// 			redirect('devote/pemilihan_wakil_mpk');
+// 		} else {
+// 		$where = array(
+// 			"jenis_calon" => 'KETUA'
+// 		);
+// 		$data['calon'] = $this->M_user->get_where_calon("calon",$where);
+// 		$this->load->view('user/pemilihan',$data);
+// 	}
+// }
 
 // ---- FOR WAKIL MPK
 
-	public function pemilihan_wakil_mpk()
-	{
-		$table = "pemilihan";
-		$id = $this->session->userdata('id_user');
-		$valid_user = $this->M_user->cek_field($table,$id);
-		if ($valid_user == true) {
-			redirect('devote/aspirasi');
-		} else {
-		$where = array(
-			"jenis_calon" => 'WAKIL'
-		);
-		$data['calon'] = $this->M_user->get_where_calon("calon",$where);
-		$this->load->view('user/pemilihan',$data);
-		$id_user = $this->session->userdata('id_user');
-	}
-}
+// 	public function pemilihan_wakil_mpk()
+// 	{
+// 		$table = "pemilihan";
+// 		$id = $this->session->userdata('id_user');
+// 		$valid_user = $this->M_user->cek_field($table,$id);
+// 		if ($valid_user == true) {
+// 			redirect('devote/aspirasi');
+// 		} else {
+// 		$where = array(
+// 			"jenis_calon" => 'WAKIL'
+// 		);
+// 		$data['calon'] = $this->M_user->get_where_calon("calon",$where);
+// 		$this->load->view('user/pemilihan',$data);
+// 		$id_user = $this->session->userdata('id_user');
+// 	}
+// }
 
 
 	public function aspirasi()

@@ -9,6 +9,8 @@ class Login extends CI_Controller
 	}
 
 	// ------------ FUNCTION FOR CHOOICE LEAD OF MPK
+
+
 	// public function index(){
 	// 	if($this->session->userdata('id_user')){
 	// 		redirect('devote/pemilihan_ketua_mpk');
@@ -95,7 +97,7 @@ class Login extends CI_Controller
 	}
 	public function logout(){
 		$this->session->unset_userdata('id_user');
-		$this->session->set_flashdata('flash','Terima Kasih');
+		$this->session->set_flashdata('flash','Terima Kasih ');
 		redirect('login');
 	}
 }
