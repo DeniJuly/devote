@@ -157,14 +157,17 @@ class Devote extends CI_Controller {
 				"isi"	  => $this->input->post('isi')
 		);
 		$this->M_user->input('aspirasi',$data);
-		redirect('login/logout');
+		$output = array('error' => false );
+		echo json_encode($output);
+		// redirect('login/logout');
 	}
 	function pilih_input($id){
 		$id_calon = $id;
 		$id_user = $this->session->userdata('id_user');
 		$data = array(
 				'id_calon' => $id_calon,
-				'id_user'  => $id_user
+				'id_user'  => $id_user,
+				'janis_calon' => 'OSIS'
 			);
 		$this->M_pemilihan->input($data);
 		redirect('/devote/aspirasi');

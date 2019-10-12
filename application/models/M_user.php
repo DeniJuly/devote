@@ -62,7 +62,7 @@ class M_user extends CI_Model {
 		$this->db->insert($table,$data);
 	}
 	public function get_data($table,$order_by){
-		return $this->db->select("user.nama,$table.*")
+		return $this->db->select("user.nama,user.jk,$table.*")
 					->from($table)
 					->join('user','user.id_user = aspirasi.id_user','left')
 					->order_by($order_by,"ASC")

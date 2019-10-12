@@ -34,7 +34,7 @@
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="card card-data_diri">
                     <div class="card-body">
-                        <form action="<?= site_url()?>/devote/input_aspirasi" method="post" class="form">
+                        <form method="post" class="form" id="aspirasiform">
                             <h5 class="text-center">Apa harapan kamu untuk OSIS periode 2019/2020?</h5 class="text-center">
                                 <textarea name="isi" id="aspirasi" class="form-control" placeholder="tulis harapan kamu disini..."></textarea>
                             </div>
@@ -57,7 +57,11 @@
                         <div class="harapan">
                             <p><?= $aspirasi['isi']?></p>
                             <div class="photo">
-                                <img src="<?= base_url() ?>public/img/deni.JPG" alt="photo-profile">
+                                <img <?php if ($aspirasi['jk'] ==  1) {?>
+                                        src="<?= base_url() ?>public/img/icon/man.png"
+                                       <?php } else {?>
+                                        src="<?= base_url() ?>public/img/icon/girl.png"
+                                       <?php } ?>  alt="photo-profile">
                                 <center>
                                     <span class="text-center"><?= $aspirasi['nama']?></span>
                                 </center>
@@ -76,8 +80,47 @@
     integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
     crossorigin="anonymous"></script>
     <script src="<?= base_url() ?>public/owl/js/owl.carousel.min.js"></script>
+    <script src="<?= base_url() ?>public/js/sweetalert2/sweetalert2.all.min.js"></script>
     <script>
         $(document).ready(function () {
+        $('#aspirasiform').submit(function(e){
+            e.preventDefault();
+
+            $('.btn-kirim').html('<button class="btn login color-white" type="submit" id="login-btn" style="color: #fff!important" DISABLED><span class="spinner-border spinner-border-sm mb-1 color-white" role="status" aria-hidden="true"></span> <span class="color-white">Loading...<span></button>');
+            var url = '<?php echo base_url(); ?>';
+            var user = $('#aspirasiform').serialize();
+            var login = function(){
+                $.ajax({
+                    type: 'POST',
+                    url: "<?= site_url()?>/devote/input_aspirasi",
+                    dataType: 'json',
+                    data: user,
+                    success:function(response){
+                        $('.btn-kirim').html('<button class="btn login color-white" type="submit" id="login-btn" style="color: #fff!important" ><span class="color-white">SIMPAN<span></button>');
+                        if(response.error){
+                            $('#responseDiv').removeClass('alert-success').addClass('alert-danger').show();
+                        }
+                        else{
+                            
+                            Swal.fire({
+                              position: 'center',
+                              type: 'success',
+                              text : 'Terima Kasih Sudah Memilih',
+                              showConfirmButton: false,
+                              timer: 1500
+                            });
+
+                            $('#aspirasiform')[0].reset();
+                            setTimeout(function(){
+                                window.location = "<?= site_url()?>/login/logout";
+                            }, 1200);
+                        }
+                    }
+                });
+            };
+            setTimeout(login, 200);
+        });
+
             $(".owl-carousel").owlCarousel({
                 items: 1,
                 autoPlay: 5000,
