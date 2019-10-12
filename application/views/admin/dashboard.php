@@ -13,7 +13,7 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-12">
           <div class="small-box bg-success">
             <div class="inner">
               <h3><?php echo count($calon)." Pasang"; ?></h3>
@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-12">
           <div class="small-box bg-info">
             <div class="inner">
               <h3><?php echo count($user)." Data"; ?></h3>
@@ -39,7 +39,7 @@
           </div>
         </div>
 
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-12">
           <div class="small-box bg-warning">
             <div class="inner">
               <h3><?php echo count($feedback)." Data"; ?></h3>
@@ -52,7 +52,7 @@
           </div>
         </div>
 
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-12">
           <div class="small-box bg-primary">
             <div class="inner">
               <h3>2 Diagram</h3>

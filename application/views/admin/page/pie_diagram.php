@@ -41,9 +41,6 @@ var chart = new CanvasJS.Chart("chartContainer", {
   title: {
     text: "Data Sementara Hasil Perhitungan"
   },
-  subtitles: [{
-    text: "*Jika data calon tidak muncul, berarti belum ada yg memilih calon"
-  }],
   data: [{
     type: "pie",
     yValueFormatString: "#,##0 Pemilih",
