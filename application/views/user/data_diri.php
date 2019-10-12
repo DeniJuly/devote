@@ -31,37 +31,60 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-10 col-md-3 col-lg-3 offset-1 offset-md-1 offset-lg-1">
-                        <img src="<?= base_url() ?>public/img/deni.JPG" alt="foto profile" class="img-responsive img-profile">
+                        <img 
+                            <?php if ($data_diri['jk'] ==  1) {?>
+                            src="<?= base_url() ?>public/img/icon/man.png"
+                           <?php } else {?>
+                            src="<?= base_url() ?>public/img/icon/girl.png"
+                           <?php } ?> 
+                        alt="foto profile" class="img-responsive img-profile">
                     </div>
                     <div class="col-12 col-md-8 col-lg-8 offset-0">
                         <table class="table-data_diri">
+                            <?php if ($data_diri['jenis_user'] == "GURU") {?>
+                               <tr>
+                                 <td>ID User</td>
+                                 <td>: <?= $data_diri['id_user']?></td>
+                                </tr>
+                           <?php } else {?>
                             <tr>
                                 <td>NIS</td>
                                 <td>: <?= $data_diri['id_user']?></td>
                             </tr>
+                           <?php } ?>
                             <tr>
                                 <td>Nama</td>
                                 <td>: <?= $data_diri['nama']?></td>
                             </tr>
+                            <?php if ($data_diri['jenis_user'] == "GURU") {?>
+                               
+                           <?php } else {?>
+                           
                             <tr>
                                 <td>Kelas</td>
                                 <td>: <?= $data_diri['nama_kelas']?></td>
                             </tr>
+                        <?php } ?>
+                        <?php if ($data_diri['jenis_user'] == "GURU") {?>
+
+                           <?php } else {?>
                             <tr>
                                 <td>Jenis Kelamin</td>
-                                <?php if ($data_diri['id_user'] == 1) { ?>
+                                <?php if ($data_diri['jk'] == 1) { ?>
                                    <td>: Laki-Laki</td>
                                 <?php } else {?>
-                                    <td>: Laki-Laki</td>
+                                    <td>: Perempuan</td>
                                 <?php } ?>
                             </tr>
+                           <?php } ?>
+
                         </table>
                     </div>
                 </div>
             </div>
         </div>
         <div class="button">
-            <a href="<?= site_url()?>/devote/keluar" class="btn btn-keluar">Keluar</a>
+            <a href="<?= site_url()?>/login/logout" class="btn btn-keluar">Keluar</a>
             <a href="<?= site_url()?>/devote/ulasan" class="btn btn-lanjut">Lanjut</a>
         </div>
     </div>

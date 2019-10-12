@@ -41,7 +41,14 @@ class M_calon extends CI_Model {
 		$this->db->where($where);
 		return $this->db->delete($this->tb);
 	}
+	 public function get_by_id($id)
+    {
+        $this->db->from($this->tb);
+        $this->db->where('id_calon',$id);
+        $query = $this->db->get();
 
+        return $query->row();
+    }
 }
 
 /* End of file M_calon.php */

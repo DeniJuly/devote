@@ -3,16 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_user extends CI_Model {
 
-	// AJA DIHAPUSI !!
 	public $tb = 'user';
 	public $id = 'id_user';
 
 	public function get($table)
 	{
-		return $this->db->get($table);
+		return $this->db->get($table)->result_array();
 	}
 	public function get_where($table,$where){
 		return $this->db->get_where($table,$where)->row_array();
+	}
+	public function get_where_calon($table,$where){
+		return $this->db->get_where($table,$where)->result_array();
 	}
 	public function join_user_kelas()
 	{
@@ -30,10 +32,25 @@ class M_user extends CI_Model {
 		if ($result->num_rows() > 0 ) {
 			$field = $result->row('token');
 			if ($token == $field) {
-				return $result->row();
+				$data['hasil'] = array(
+					'status' => TRUE,
+					'pesan'  => 'success',
+					'data'	 => $result->row_array()
+				);
+				return $data;
 			} else {
-				echo "wrong token lurr";
+					$data['hasil'] = array(
+					'status' => FALSE,
+					'pesan'  => 'Token Tidak Cocok'
+				);
+			return  $data;
 			}
+		} else {
+			$data['hasil'] = array(
+					'status' => FALSE,
+					'pesan'  => 'NIS Tidak Ditemukan'
+				);
+			return  $data;
 		}
 	}
 	function get_user($id){
@@ -57,6 +74,28 @@ class M_user extends CI_Model {
 		$this->db->insert($table,$data);
 	}
 	}
+	public function input($table,$data){
+		$this->db->insert($table,$data);
+	}
+	public function get_data($table,$order_by){
+		return $this->db->select("user.nama,user.jk,$table.*")
+					->from($table)
+					->join('user','user.id_user = aspirasi.id_user','left')
+					->order_by($order_by,"DESC")
+					->limit(3)
+					->get()
+					->result_array();
+	}
+	function cek_field($table,$id){
+		$result = $this->db->where('id_user',$id)
+							->limit(1)
+							->get($table);
+		if ($result->num_rows() > 0 ) {
+				return $result->row();
+			} else {
+				return false;
+			}
+		}
 
 }
 

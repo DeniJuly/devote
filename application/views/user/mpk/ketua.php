@@ -51,7 +51,7 @@
 										>Visi Misi</button
 									>
 									<a
-										href="<?= site_url() ?>/devote/pilih_input/<?= $calon['id_calon'] ?>"
+										href="<?= site_url() ?>/devote/pilih_input_ketua_mpk/<?= $calon['id_calon'] ?>"
 										class="btn btn-pilih col-sm-5 col-5 offset-1 pilih-btn"
 										>Pilih</a
 									>
@@ -67,7 +67,7 @@
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h4 class="modal-title text-center" id="exampleModalLabel">Visi - Misi</h4>
+				        <h4 class="modal-title text-center" id="exampleModalLabel">Visi & Misi</h4>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
@@ -109,8 +109,7 @@
 				  showCancelButton: true,
 				  confirmButtonColor: '#3085d6',
 				  cancelButtonColor: '#d33',
-				  confirmButtonText: 'Pilih',
-				  cancelButtonText : 'Batal'
+				  confirmButtonText: 'Pilih'
 				}).then((result) => {
 				  if (result.value) {
 				    	document.location.href = href;

@@ -57,7 +57,9 @@
                     </div>
                 </div>
                 <div class="button">
-                    <a href="<?= site_url() ?>/devote/pemilihan" class="btn btn-lanjut" disabled="disabled">Simpan</a>
+                  <form action="<?= site_url() ?>/devote/pemilihan">
+                    <button href="<?= site_url() ?>/devote/pemilihan" class="btn btn-lanjut" disabled="disabled" >Simpan</button>
+                  </form>
                 </div>
             </div>
         </div>

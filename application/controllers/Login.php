@@ -7,44 +7,46 @@ class Login extends CI_Controller
 		$this->load->model('M_user');
 		$this->load->model('M_admin');
 	}
-    public function index()
-	{
-		$this->form_validation->set_rules('nis','Nis','required');
-		$this->form_validation->set_rules('token','Token','required');
-		if ($this->form_validation->run() == FALSE) {
+
+
+	public function index(){
+		if($this->session->userdata('id_user')){
+			redirect('devote');
+			}
+		else{
 			$this->load->view('login');
-		} else {
+		}
+	}
+
+    public function login()
+	{
 			$token = $this->input->post('token');
 			$nis = $this->input->post('nis');
 			$valid_user = $this->M_user->cek_session($token,$nis);
-			if ($valid_user == FALSE) {
-				$this->session->set_flashdata('error','Nis dan token tidak dapat di temukan');
-				redirect('login');
-			} else {
-				$valid_user =  $this->M_user->cek_session($token,$nis);
-				if ($valid_user == FALSE) {
-					$this->session->set_flashdata('error','Nis dan token tidak dapat di temukan');
-					redirect('login');
-				} else {
-					$this->session->set_userdata('nama',$valid_user->nama);
-					$this->session->set_userdata('level',$valid_user->jenis_user);
-					switch ($valid_user->jenis_user) {
+			$output = array('error' => false);
+
+			if ($valid_user['hasil']['status'] == TRUE) {
+				switch ($valid_user['hasil']['data']['jenis_user']) {
 						case 'SISWA':
-							$this->session->set_userdata('id_user',$valid_user->id_user);
-							redirect('devote');
+							$this->session->set_userdata('id_user',$valid_user['hasil']['data']['id_user']);
+							$output['message'] = 'Logging in. Please wait...';
 							break;
 						case 'GURU':
-							$this->session->set_userdata('id',$valid_user->id_user);
-							$this->session->set_userdata('nama',$valid_user->nama);
-							redirect('admin');
+							$this->session->set_userdata('id_user',$valid_user['hasil']['data']['id_user']);
+							$output['message'] = 'Logging in. Please wait...';
 							break;
 						default:break;
 					}
-				}
+				
+			} else {
+				$output['error'] = true ;
+				$output['message'] = $valid_user['hasil']['pesan'];
 			}
-		}
+
+		echo json_encode($output);
 
 	}
+
 	public function login_admin()
 	{
 		$this->load->view('admin/page/login');
