@@ -96,18 +96,24 @@
 					success:function(response){
 						$('.login-btn').html('<button class="btn login color-white" type="submit" id="login-btn" style="color: #fff!important" ><span class="color-white">MASUK<span></button>');
 						if(response.error){
-							$('#responseDiv').removeClass('alert-success').addClass('alert-danger').show();
+							Swal.fire({
+							  position: 'center',
+							  type: 'error',
+							  text: response.message,
+							  showConfirmButton: false,
+							  timer: 1800
+							})
 						}
 						else{
 							$('#logForm')[0].reset();
 							setTimeout(function(){
 								location.reload();
-							}, 400);
+							}, 100);
 						}
 					}
 				});
 			};
-			setTimeout(login, 400);
+			setTimeout(login, 100);
 		});
 
 		$(document).on('click', '#clearMsg', function(){

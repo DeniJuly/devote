@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_user extends CI_Model {
 
-	// AJA DIHAPUSI !!
 	public $tb = 'user';
 	public $id = 'id_user';
 
@@ -33,10 +32,25 @@ class M_user extends CI_Model {
 		if ($result->num_rows() > 0 ) {
 			$field = $result->row('token');
 			if ($token == $field) {
-				return $result->row();
+				$data['hasil'] = array(
+					'status' => TRUE,
+					'pesan'  => 'success',
+					'data'	 => $result->row_array()
+				);
+				return $data;
 			} else {
-				echo "wrong token lurr";
+					$data['hasil'] = array(
+					'status' => FALSE,
+					'pesan'  => 'Token Tidak Cocok'
+				);
+			return  $data;
 			}
+		} else {
+			$data['hasil'] = array(
+					'status' => FALSE,
+					'pesan'  => 'NIS Tidak Ditemukan'
+				);
+			return  $data;
 		}
 	}
 	function get_user($id){
@@ -67,7 +81,7 @@ class M_user extends CI_Model {
 		return $this->db->select("user.nama,user.jk,$table.*")
 					->from($table)
 					->join('user','user.id_user = aspirasi.id_user','left')
-					->order_by($order_by,"ASC")
+					->order_by($order_by,"DESC")
 					->limit(3)
 					->get()
 					->result_array();

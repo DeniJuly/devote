@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="button">
-            <a href="<?= site_url()?>/devote/login/logout" class="btn btn-keluar">Keluar</a>
+            <a href="<?= site_url()?>/login/logout" class="btn btn-keluar">Keluar</a>
             <a href="<?= site_url()?>/devote/ulasan" class="btn btn-lanjut">Lanjut</a>
         </div>
     </div>
