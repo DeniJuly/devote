@@ -51,7 +51,7 @@
 										>Visi Misi</button
 									>
 									<a
-										href="<?= site_url() ?>/devote/pilih_input/<?= $calon['id_calon'] ?>"
+										href="<?= site_url() ?>/devote/pilih_input_ketua_mpk/<?= $calon['id_calon'] ?>"
 										class="btn btn-pilih col-sm-5 col-5 offset-1 pilih-btn"
 										>Pilih</a
 									>

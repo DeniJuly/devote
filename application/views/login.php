@@ -22,6 +22,7 @@
 		/>
 	</head>
 	<body>
+		<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash');?>"> </div>
 		<div class="svg">
 			<img
 				src="<?= base_url() ?>public/img/decoration/green_top.svg"
@@ -47,7 +48,7 @@
 		</div>
 		<div class="container container-login">
 			<h1>LOGIN</h1>
-			<form method="POST">
+			<form method="POST" id="logForm">
 				<div class="form-group">
 					<label for="nis" class="label-login color-green">Nis</label>
 					<input
@@ -70,13 +71,58 @@
 					/>
 				</div>
 				<div class="login-btn">
-					<button class="btn login" type="submit">MASUK</button>
+					<button class="btn login color-white" type="submit" id="login-btn" style="color: #fff!important"><span id="logText">MASUK</span></button>
 				</div>
 			</form>
-			</div>
 		</div>
 	</body>
 	<script src="<?= base_url() ?>public/js/jquery.js"></script>
 	<script src="<?= base_url() ?>public/js/bootstrap/bootstrap.min.js"></script>
 	<script src="<?= base_url() ?>public/js/sweetalert2/sweetalert2.all.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#logForm').submit(function(e){
+			e.preventDefault();
+
+			$('.login-btn').html('<button class="btn login color-white" type="submit" id="login-btn" style="color: #fff!important" DISABLED><span class="spinner-border spinner-border-sm mb-1 color-white" role="status" aria-hidden="true"></span> <span class="color-white">Loading...<span></button>');
+			var url = '<?php echo base_url(); ?>';
+			var user = $('#logForm').serialize();
+			var login = function(){
+				$.ajax({
+					type: 'POST',
+					url: url + 'index.php/login/login',
+					dataType: 'json',
+					data: user,
+					success:function(response){
+						$('.login-btn').html('<button class="btn login color-white" type="submit" id="login-btn" style="color: #fff!important" ><span class="color-white">MASUK<span></button>');
+						if(response.error){
+							$('#responseDiv').removeClass('alert-success').addClass('alert-danger').show();
+						}
+						else{
+							$('#logForm')[0].reset();
+							setTimeout(function(){
+								location.reload();
+							}, 400);
+						}
+					}
+				});
+			};
+			setTimeout(login, 400);
+		});
+
+		$(document).on('click', '#clearMsg', function(){
+			$('#responseDiv').hide();
+		});
+		const flashdata = $('.flash-data').data('flashdata');
+		if (flashdata) {
+			Swal.fire({
+			  position: 'center',
+			  type: 'success',
+			  title: flashdata,
+			  showConfirmButton: false,
+			  timer: 1800
+			})
+		}
+	});
+	</script>
 </html>

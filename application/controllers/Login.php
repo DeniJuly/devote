@@ -7,42 +7,64 @@ class Login extends CI_Controller
 		$this->load->model('M_user');
 		$this->load->model('M_admin');
 	}
-    public function index()
-	{
-		$this->form_validation->set_rules('nis','Nis','required');
-		$this->form_validation->set_rules('token','Token','required');
-		if ($this->form_validation->run() == FALSE) {
+
+	// ------------ FUNCTION FOR CHOOICE LEAD OF MPK
+
+
+	// public function index(){
+	// 	if($this->session->userdata('id_user')){
+	// 		redirect('devote/pemilihan_ketua_mpk');
+	// 		}
+	// 	else{
+	// 		$this->load->view('login');
+	// 	}
+	// }
+
+	// ------------ FUNCTION FOR CHOOICE LEAD OF OSIS
+
+	public function index(){
+		if($this->session->userdata('id_user')){
+			$id = $this->session->userdata('id_user');
+			$data['data_diri'] = $this->M_user->get_user($id);
+			// print_r($data);
+			$this->load->view('user/data_diri',$data);
+			}
+		else{
 			$this->load->view('login');
-		} else {
+		}
+	}
+    public function login()
+	{
 			$token = $this->input->post('token');
 			$nis = $this->input->post('nis');
 			$valid_user = $this->M_user->cek_session($token,$nis);
+			$output = array('error' => FALSE);
+
 			if ($valid_user == FALSE) {
-				$this->session->set_flashdata('error','Nis dan token tidak dapat di temukan');
-				redirect('login');
+				$output['error'] = true ;
+				$output['message'] = 'Login Invalid.User not found';
 			} else {
 				$valid_user =  $this->M_user->cek_session($token,$nis);
 				if ($valid_user == FALSE) {
-					$this->session->set_flashdata('error','Nis dan token tidak dapat di temukan');
-					redirect('login');
+						$output['error'] = true ;
+						$output['message'] = 'Login Invalid.User not found';
 				} else {
 					$this->session->set_userdata('nama',$valid_user->nama);
 					$this->session->set_userdata('level',$valid_user->jenis_user);
 					switch ($valid_user->jenis_user) {
 						case 'SISWA':
 							$this->session->set_userdata('id_user',$valid_user->id_user);
-							redirect('devote');
+							$output['message'] = 'Logging in. Please wait...';
 							break;
 						case 'GURU':
-							$this->session->set_userdata('id',$valid_user->id_user);
-							$this->session->set_userdata('nama',$valid_user->nama);
-							redirect('admin');
+							$this->session->set_userdata('id_user',$valid_user->id_user);
+							$output['message'] = 'Logging in. Please wait...';
 							break;
 						default:break;
 					}
 				}
 			}
-		}
+		echo json_encode($output);
 
 	}
 	public function login_admin()
@@ -74,7 +96,8 @@ class Login extends CI_Controller
     	}
 	}
 	public function logout(){
-		$this->session->sess_destroy();
+		$this->session->unset_userdata('id_user');
+		$this->session->set_flashdata('flash','Terima Kasih ');
 		redirect('login');
 	}
 }
