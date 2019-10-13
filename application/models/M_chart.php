@@ -19,6 +19,7 @@ class M_chart extends CI_Model {
 					->get()->result();
 			$jml_pemilih = count($pemilih);
 			$sudah_memilih = $sudah_memilih + $jml_pemilih;
+
 			$d_pemilih[$i] = $jml_pemilih;
 			$sat[$i]['nama'] = $d_calon[$i]->nama_calon;
 			$sat[$i]['data'] = $jml_pemilih;

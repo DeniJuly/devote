@@ -1,5 +1,4 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
   <section class="content-header">
     <section class="content">
       <div class="row">
@@ -9,7 +8,6 @@
             <div class="card-header">
               <h3 class="card-title">Data Diagram Hasil Pemilihan</h3>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
               <div id="graph"></div>
             </div>
