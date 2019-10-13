@@ -48,6 +48,8 @@ class Admin extends CI_Controller {
 	{
 		$da = $this->M_chart->data_bar();
 		$data['sa'] = json_encode($da);
+		// print_r($data['sa']);
+		// die();
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/bar_diagram',$data);
 		$this->load->view('admin/footer');

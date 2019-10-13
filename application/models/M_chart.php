@@ -23,6 +23,8 @@ class M_chart extends CI_Model {
 			$sat[$i]['nama'] = $d_calon[$i]->nama_calon;
 			$sat[$i]['data'] = $jml_pemilih;
 		}
+		$sat[count($d_calon)]['nama'] = 'BELUM MEMILIH';
+		$sat[count($d_calon)]['data'] = $jml_user - $sudah_memilih;
 		return $sat;
 	}
 
