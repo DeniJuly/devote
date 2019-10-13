@@ -78,8 +78,6 @@ class Devote extends CI_Controller {
 			"jenis_calon" => 'OSIS'
 		);
 		$data['calon'] = $this->M_user->get_where_calon("calon",$where);
-		print_r($data['calon']);
-		die();
 		$this->load->view('user/pemilihan',$data);
 		$id_user = $this->session->userdata('id_user');
 	}
