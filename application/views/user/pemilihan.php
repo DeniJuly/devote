@@ -40,7 +40,7 @@
 								</h6>
 								<div class="row" style="padding:20px;">
 									<img
-										src="<?= base_url() ?>public/img/example.jpg"
+										src="<?= base_url() ?>public/img/foto_calon/<?php echo $calon['foto']?>"
 										alt="foto profile"
 										class="img-responsive img-profile"
 									/>
@@ -73,15 +73,11 @@
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				       <h5>Visi</h5>
-								<p>
-									<?= $calon['visi'] ?>
-								</p>
+				       <h5 class="modal-sub_title">Visi</h5>
+				       <?= $calon['visi'] ?>
 				       <br>
-				       <h5>Misi</h5>
-								<p>
-									<?= $calon['misi'] ?>
-								</p>
+				       <h5 class="modal-sub_title">Misi</h5>
+				       <?= $calon['misi'] ?>
 				      </div>
 				    </div>
 				  </div>
@@ -109,7 +105,7 @@
 				Swal.fire({
 				  title: 'Apakah anda Yakin?',
 				  text: "",
-				  type: 'warning',
+				  type: 'question',
 				  showCancelButton: true,
 				  confirmButtonColor: '#3085d6',
 				  cancelButtonColor: '#d33',

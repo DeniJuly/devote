@@ -22,25 +22,30 @@ class Login extends CI_Controller
 	{
 			$token = $this->input->post('token');
 			$nis = $this->input->post('nis');
-			$valid_user = $this->M_user->cek_session($token,$nis);
-			$output = array('error' => false);
-
-			if ($valid_user['hasil']['status'] == TRUE) {
-				switch ($valid_user['hasil']['data']['jenis_user']) {
-						case 'SISWA':
-							$this->session->set_userdata('id_user',$valid_user['hasil']['data']['id_user']);
-							$output['message'] = 'Logging in. Please wait...';
-							break;
-						case 'GURU':
-							$this->session->set_userdata('id_user',$valid_user['hasil']['data']['id_user']);
-							$output['message'] = 'Logging in. Please wait...';
-							break;
-						default:break;
-					}
-				
-			} else {
+			$valid_user = $this->M_user->cek_field("pemilihan",$this->input->post('nis'));
+			if($valid_user){
 				$output['error'] = true ;
-				$output['message'] = $valid_user['hasil']['pesan'];
+				$output["message"] = "Anda Sudah Memilih";
+			}else{
+				$valid_user = $this->M_user->cek_session($token,$nis);
+				$output = array('error' => false);
+				if ($valid_user['hasil']['status'] == TRUE) {
+					switch ($valid_user['hasil']['data']['jenis_user']) {
+							case 'SISWA':
+								$this->session->set_userdata('id_user',$valid_user['hasil']['data']['id_user']);
+								$output['message'] = 'Logging in. Please wait...';
+								break;
+							case 'GURU':
+								$this->session->set_userdata('id_user',$valid_user['hasil']['data']['id_user']);
+								$output['message'] = 'Logging in. Please wait...';
+								break;
+							default:break;
+						}
+					
+				} else {
+					$output['error'] = true ;
+					$output['message'] = $valid_user['hasil']['pesan'];
+				}
 			}
 
 		echo json_encode($output);

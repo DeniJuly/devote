@@ -2,13 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_user extends CI_Model {
-
 	public $tb = 'user';
 	public $id = 'id_user';
 
 	public function get($table)
 	{
-		return $this->db->get($table)->result_array();
+		return $this->db->get($this->tb);
 	}
 	public function get_where($table,$where){
 		return $this->db->get_where($table,$where)->row_array();
@@ -22,7 +21,7 @@ class M_user extends CI_Model {
 			user.*,kelas.*
 		');
 		$this->db->from($this->tb);
-		$this->db->join('kelas','user.id_kelas = kelas.id_kelas');
+		$this->db->join('kelas','kelas.id_kelas = user.id_kelas');
 		return $this->db->get();
 	}
 	function cek_session($token,$nis){

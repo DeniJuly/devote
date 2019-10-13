@@ -21,6 +21,11 @@ class M_pemilihan extends CI_Model {
 		return $this->db->get($this->tb);
 	}
 
+	public function input($data)
+	{
+		return $this->db->insert($this->tb,$data);
+	}
+
 	public function join_calon_pemilihan_pie()
 	{
 		$this->db->select('calon.nama_calon as label, count(pemilihan.id_calon) as y');

@@ -5,9 +5,9 @@ class Devote extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		if($this->session->userdata('id_user')==null){
-			redirect(site_url('Login'));
-		}
+		// if($this->session->userdata('id_user')==null){
+		// 	redirect(site_url('Login'));
+		// }
 		$this->load->model('M_user');
 		$this->load->model('M_pemilihan');
 		$this->load->model('M_calon');
@@ -26,7 +26,6 @@ class Devote extends CI_Controller {
 	
 	}
 
-
 	public function ulasan()
 	{	
 		$table = "penilaian";
@@ -35,12 +34,12 @@ class Devote extends CI_Controller {
 		if ($valid_user == true) {
 			redirect('devote/pemilihan');
 		} else {
-		$where = array(
-			"jenis_calon" => 'OSIS'
-		);
-		$data['osis'] = $this->M_user->get_where('calon',$where);
-		$this->load->view('user/ulasan',$data);
-	}
+			$where = array(
+				"jenis_calon" => 'OSIS'
+			);
+			$data['osis'] = $this->M_user->get_where('calon',$where);
+			$this->load->view('user/ulasan',$data);
+		}
 	}
 
 	public function pemilihan()
@@ -55,7 +54,7 @@ class Devote extends CI_Controller {
 			redirect('devote/ulasan');
 		} else {
 		$where = array(
-			"jenis_calon" => 'OSIS'
+			"jenis_calon" => 'CALON'
 		);
 		$data['calon'] = $this->M_user->get_where_calon("calon",$where);
 		$this->load->view('user/pemilihan',$data);
@@ -108,8 +107,8 @@ class Devote extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		$data = array(
 				'id_calon' => $id_calon,
-				'id_user'  => $id_user,
-			);
+				'id_user'  => $id_user
+		);
 		$this->M_pemilihan->input($data);
 		redirect('/devote/aspirasi');
 	}

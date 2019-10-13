@@ -34,8 +34,9 @@
                         <div class="row">
                             <h6 class="title-card m-auto">Ketua OSIS dan Wakil Ketua Osis Periode 2018/2019</h6>
                             <div class="col-10 col-md-6 col-lg-6 offset-1 offset-md-3 offset-lg-3">
-                                <img src="<?= base_url() ?>public/img/<?= $osis['foto']?>" alt="foto profile" class="img-responsive img-profile">
+                                <img src="<?= base_url() ?>public/img/foto_calon/<?= $osis['foto'];?>" alt="foto profile" class="img-responsive img-profile">
                             </div>
+                            <h6 class="nama-calon"><?= $osis['nama_calon'] ?></h6>
                         </div>
                     </div>
                 </div>
@@ -144,7 +145,7 @@
                     $(".rate-3").css("color","#EC8956");
                     $(".rate-4").css("color","#EC8956");
                     $(".rate-5").css("color","#EC8956");
-                    $("#rate-text").text("Duar...");
+                    $("#rate-text").text("Luar Biasa...");
                     $(".btn-lanjut").removeAttr("disabled");
                        var rate = 5;
                      $.ajax({
