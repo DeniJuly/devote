@@ -8,6 +8,8 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		if ($this->session->userdata('username') == "") {
 			redirect('login/login_admin');
+		}elseif ($this->session->userdata('id_user') != "") {
+			redirect('Login');
 		}
 		$this->load->model('M_calon');
 		$this->load->model('M_user');
@@ -48,6 +50,8 @@ class Admin extends CI_Controller {
 	{
 		$da = $this->M_chart->data_bar();
 		$data['sa'] = json_encode($da);
+		// print_r($data['sa']);
+		// die();
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/bar_diagram',$data);
 		$this->load->view('admin/footer');
