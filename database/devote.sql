@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: 12 Okt 2019 pada 20.22
--- Versi Server: 5.7.27-0ubuntu0.18.04.1
--- PHP Version: 7.2.19-0ubuntu0.18.04.2
+-- Host: 127.0.0.1
+-- Generation Time: Oct 13, 2019 at 08:26 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -33,10 +35,17 @@ CREATE TABLE `admin` (
   `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `username`, `nama`, `password`) VALUES
+(1, 'admin', 'Deni Juli Setiawan', 'e184865de18d66d8e75ec64e2bdc7b8fc7999103');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aspirasi`
+-- Table structure for table `aspirasi`
 --
 
 CREATE TABLE `aspirasi` (
@@ -46,17 +55,10 @@ CREATE TABLE `aspirasi` (
   `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `aspirasi`
---
-
-INSERT INTO `aspirasi` (`id_aspirasi`, `id_user`, `isi`, `waktu`) VALUES
-(7, 14915, '', '2019-10-12 13:19:41');
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `calon`
+-- Table structure for table `calon`
 --
 
 CREATE TABLE `calon` (
@@ -69,23 +71,19 @@ CREATE TABLE `calon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `calon`
+-- Dumping data for table `calon`
 --
 
 INSERT INTO `calon` (`id_calon`, `nama_calon`, `visi`, `misi`, `foto`, `jenis_calon`) VALUES
-(1, 'maman', 'ok', 'ok', 'deni.jpg', 'CALON'),
-(2, 'Bambang', 'ok', 'ok', 'deni.jpg', 'CALON'),
-(3, 'DENI', 'ok', 'ok', 'deni.jpg', 'CALON'),
-(6, 'Abdul Kodir', 'ok', 'ok', 'deni.JPG', 'OSIS'),
-(7, 'Ipul', 'df', 'sfd', 'dsfsf', 'CALON'),
-(8, 'Alex Wahyu', 'ok', 'ok', 'sdfa', 'CALON'),
-(9, 'Raihan - Ijon', 'ok', 'ok', 'ok.jpg', 'CALON'),
-(10, 'Yoga -Budi', 'ok', 'ok', 'ok.jpg', 'CALON');
+(4, 'Sahid Nur Anwar - Yeni Supratman', '<p>Lorem ipsum dolar amet&nbsp;<span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet</span></p>', '<ol><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li></ol>', 'Sahid_Nur_Anwar_-_Yeni_Supratman-13-Oct-2019.jpg', 'CALON'),
+(5, 'Deni Juli Setiawan - Samin Bin Ngalim', '<p>Lorem ipsum dolar amet&nbsp;<span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet</span></p>', '<ol><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet<br></li></ol>', 'Deni_Juli_Setiawan_-_Samin_Bin_Ngalim-13-Oct-2019.jpg', 'CALON'),
+(6, 'Bendi Wahyudi - Ibrahim', '<p>Lorem ipsum dolar amet&nbsp;<span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet</span><br></p>', '<ol><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet<br></li></ol>', 'Bendi_Wahyudi_-_Ibrahim-13-Oct-2019.jpg', 'CALON'),
+(7, 'Bendi Wahyudi - Ibrahim', '', '', 'Bendi_Wahyudi_-_Ibrahim-13-Oct-2019.jpg', 'OSIS');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kelas`
+-- Table structure for table `kelas`
 --
 
 CREATE TABLE `kelas` (
@@ -94,16 +92,16 @@ CREATE TABLE `kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kelas`
+-- Dumping data for table `kelas`
 --
 
 INSERT INTO `kelas` (`id_kelas`, `nama_kelas`) VALUES
-(1, 'XII RPL 2');
+(1, 'X RPL 1');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemilihan`
+-- Table structure for table `pemilihan`
 --
 
 CREATE TABLE `pemilihan` (
@@ -111,17 +109,10 @@ CREATE TABLE `pemilihan` (
   `id_user` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `pemilihan`
---
-
-INSERT INTO `pemilihan` (`id_calon`, `id_user`) VALUES
-(6, 14915);
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penilaian`
+-- Table structure for table `penilaian`
 --
 
 CREATE TABLE `penilaian` (
@@ -130,36 +121,29 @@ CREATE TABLE `penilaian` (
   `penilaian` double NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `penilaian`
---
-
-INSERT INTO `penilaian` (`id_calon`, `id_user`, `penilaian`) VALUES
-(6, 14915, 1);
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id_user` int(6) NOT NULL,
   `nama` varchar(50) NOT NULL,
+  `id_kelas` int(10) NOT NULL,
   `jk` int(1) NOT NULL,
-  `id_kelas` int(11) NOT NULL,
   `token` varchar(5) NOT NULL,
   `jenis_user` enum('GURU','SISWA') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama`, `jk`, `id_kelas`, `token`, `jenis_user`) VALUES
-(14915, 'Muhammad Saiful Abdullah', 1, 1, '12op', 'SISWA'),
-(14916, 'Hasan Abdulloh', 1, 1, 'yyui', 'GURU'),
-(14977, 'Maman', 1, 7, '123', 'SISWA');
+INSERT INTO `user` (`id_user`, `nama`, `id_kelas`, `jk`, `token`, `jenis_user`) VALUES
+(11111, 'Samin Bin Ngalim', 1, 0, 'ABCD', 'GURU'),
+(14903, 'Deni Juli Setiawan', 1, 1, 'ABCD', 'SISWA'),
+(14904, 'Dewi Sinta', 1, 0, 'ABCD', 'SISWA');
 
 --
 -- Indexes for dumped tables
@@ -203,22 +187,27 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `aspirasi`
 --
 ALTER TABLE `aspirasi`
   MODIFY `id_aspirasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `calon`
 --
 ALTER TABLE `calon`
-  MODIFY `id_calon` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_calon` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
   MODIFY `id_kelas` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

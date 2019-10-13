@@ -58,6 +58,7 @@
 						placeholder="masukan nis"
 						autofocus="on"
 						name="nis"
+						autocomplete="off"
 					/>
 				</div>
 				<div class="form-group">
@@ -68,6 +69,7 @@
 						id="token"
 						placeholder="masukan token"
 						name="token"
+						autocomplete="off"
 					/>
 				</div>
 				<div class="login-btn">

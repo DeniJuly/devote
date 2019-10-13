@@ -85,7 +85,10 @@ body {
 	color: #fff;
 	font-size: 18px;
 }
-
+h6.nama-calon {
+    margin: auto;
+    margin-top: 20px;
+}
 @media only screen and (min-width: 768px) {
 	.table-data_diri {
 		font-family: Poppins-Medium;

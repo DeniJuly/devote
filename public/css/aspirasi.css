@@ -88,14 +88,15 @@ body {
 }
 
 .btn-kirim {
-	width: 100%;
-	background: #2cb778;
-	height: 38px;
-	font-family: poppins-light;
-	color: #fff;
-	font-size: 16px;
-	border: none;
-	border-radius: 8px;
+    width: 100%;
+    background: #2cb778;
+    height: 38px;
+    font-family: poppins-light;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px;
+    margin-top: 10px;
 }
 
 .rate-text {
@@ -121,12 +122,25 @@ h5 {
 }
 
 #aspirasi {
-	height: 120px;
-	margin-top: 40px;
-	background-color: #f4f4f4;
-	border-radius: 15px;
+    height: 120px;
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    padding: 20px;
+    border: none;
+}
+.harapan{
+	padding: 0px 10px;
+}
+.harapan p {
+	text-align: center;
+	background-color: #fff;
 	padding: 20px;
-	border: none;
+	border-radius: 10px;
+}
+.photo{
+	width: 150px;
+	margin: auto;
 }
 
 @media only screen and (max-width: 480px) {
@@ -135,22 +149,23 @@ h5 {
 		background-color: red;
 	}
 
-	.harapan {
+	/* .harapan {
 		padding: 20px 50px;
-	}
+	} */
 
-	.harapan p {
+	/* .harapan p {
 		text-align: center;
 		background-color: #fff;
 		padding: 20px;
 		border-radius: 10px;
-	}
+	} */
 
 	.photo {
 		width: 64px;
-		height: 64px;
-		margin-left: 50%;
-		transform: translate(-50%, 0%);
+		/* height: 64px; */
+		margin:auto;
+		/* margin-left: 50%; */
+		/* transform: translate(-50%, 0%); */
 	}
 
 	.photo img {
