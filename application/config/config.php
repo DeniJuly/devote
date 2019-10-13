@@ -24,9 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://localhost:8080/devote/';
- //$config['base_url'] = 'https://localhost/devote/';
-//$config['base_url'] = 'http://192.168.43.207/devote/';
+$config['base_url'] = 'http://192.168.43.92:8080/devote/';
 /*
 |--------------------------------------------------------------------------
 | Index File

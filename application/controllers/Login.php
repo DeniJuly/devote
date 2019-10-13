@@ -7,8 +7,6 @@ class Login extends CI_Controller
 		$this->load->model('M_user');
 		$this->load->model('M_admin');
 	}
-
-
 	public function index(){
 		if($this->session->userdata('id_user')){
 			redirect('devote');
@@ -17,7 +15,6 @@ class Login extends CI_Controller
 			$this->load->view('login');
 		}
 	}
-
     public function login()
 	{
 			$token = $this->input->post('token');
@@ -51,7 +48,6 @@ class Login extends CI_Controller
 		echo json_encode($output);
 
 	}
-
 	public function login_admin()
 	{
 		$this->load->view('admin/page/login');

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="<?= base_url() ?>public/admin/plugins/summernote/summernote-bs4.css">
   <link rel="stylesheet" href="<?= base_url() ?>public/admin/plugins/toastr/toastr.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>public/admin/dist/css/adminlte.min.css">
-  <link rel="shortcut icon" href="<?php echo base_url()?>public/img/logo/smk.jpg">
+  <link rel="shortcut icon" href="<?php echo base_url()?>public/img/logo/shortcut.png">
   
   <script src="<?= base_url() ?>public/sweetalert/sweetalert2.all.min.js"></script>
   <script src="<?= base_url() ?>public/admin/plugins/jquery/jquery.min.js"></script>

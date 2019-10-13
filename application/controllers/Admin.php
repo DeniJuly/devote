@@ -90,13 +90,13 @@ class Admin extends CI_Controller {
 
 	public function tambah_calon()
 	{
-		$nama = $this->input->post('nama_calon');
-		$visi = $this->input->post('text-visi');
-		$misi = $this->input->post('text-misi');
+		$nama 	= $this->input->post('nama_calon');
+		$visi 	= $this->input->post('text-visi');
+		$misi 	= $this->input->post('text-misi');
+		$jc		= $this->input->post('jenis_calon');
 
 		date_default_timezone_set('Asia/Jakarta');
-		$tanggal = date("d-M-Y");
-		$tgl_pembuatan = date('Y-m-d');
+		$tanggal = date("d-m-Y");
 
 		$config['upload_path']  ="./public/img/foto_calon/";
         $config['allowed_types']='gif|jpg|png';
@@ -106,10 +106,11 @@ class Admin extends CI_Controller {
         if($this->upload->do_upload("foto_calon")){
             $data = $this->upload->data();
             $data_calon = array(
-            	'nama_calon'		=> $nama,
+            	'nama_calon'		=> htmlspecialchars($nama),
             	'visi'				=> $visi,
             	'misi'				=> $misi,
-            	'foto'				=> $data['file_name']
+				'foto'				=> htmlspecialchars($data['file_name']),
+				'jenis_calon'		=> htmlspecialchars($jc)
             );
             $ins = $this->M_calon->ins($data_calon);
             if ($ins == 1) {
@@ -130,10 +131,10 @@ class Admin extends CI_Controller {
 		$nama = $this->input->post('nama_calon');
 		$visi = $this->input->post('text-visi');
 		$misi = $this->input->post('text-misi');
+		$jc		= $this->input->post('jenis_calon');
 
 		date_default_timezone_set('Asia/Jakarta');
-		$tanggal = date("d-M-Y");
-		$tgl_pembuatan = date('Y-m-d');
+		$tanggal = date("d-m-Y");
 
 		$config['upload_path']  ="./public/img/foto_calon/";
         $config['allowed_types']='gif|jpg|png';
@@ -147,10 +148,11 @@ class Admin extends CI_Controller {
 			unlink("./public/img/foto_calon/".$get_calon_by_id->foto);
 
             $data_calon = array(
-            	'nama_calon'		=> $nama,
+            	'nama_calon'		=> htmlspecialchars($nama),
             	'visi'				=> $visi,
             	'misi'				=> $misi,
-            	'foto'				=> $data['file_name']
+				'foto'				=> htmlspecialchars($data['file_name']),
+				'jenis_calon'		=> htmlspecialchars($jc)
             );
             $update = $this->M_calon->upd($where,$data_calon);
             if ($update == 1) {

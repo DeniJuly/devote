@@ -16,6 +16,11 @@
 			rel="stylesheet"
 			href="<?= base_url() ?>public/css/sweetalert2/sweetalert2.min.css"
 		/>
+		<link 
+			rel="shortcut icon" 
+			href="<?= base_url()?>public/img/logo/shortcut.png" 
+			type="image/x-icon"
+		/>
 		<title>Pemilihan - DeVote</title>
 	</head>
 	<body>

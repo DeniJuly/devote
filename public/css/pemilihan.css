@@ -74,11 +74,13 @@ footer img {
 	color: #fff;
 	text-align: center;
 	margin: auto;
+	padding: 5px;
 }
 
-.title-calon h4 {
+.title-calon h4{
 	font-size: 20px;
 	line-height: 30px;
+	margin: 0px!important;
 }
 
 .img-profile {

@@ -111,8 +111,14 @@
               <br>
 		 	  <div class="form-group">
 		 	  	<label>Foto Calon :</label>
-		 	  	<input type="file" class="form-control" name="foto_calon" id="foto_calon">
-		 	  </div>
+		 	  	<input type="file" name="foto_calon" id="foto_calon">
+			   </div>
+			   <div class="form-group">
+			   <select name="jenis_calon" class="form-control">
+				   <option value="OSIS">OSIS</option>
+				   <option value="CALON">CALON</option>
+			   </select>
+		   </div>
 		    </div>
 		    <div class="modal-footer justify-content-between">
 		      <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>

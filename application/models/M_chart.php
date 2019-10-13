@@ -5,9 +5,9 @@ class M_chart extends CI_Model {
 
 	public function data_bar()
 	{
-		$data_user = $this->db->get('user')->result();
+		$data_user 	= $this->db->get('user')->result();
 		$jml_user 	= count($data_user);
-		$d_calon = $this->db->get('calon')->result();
+		$d_calon 	= $this->db->where('jenis_calon','CALON')->get('calon')->result();
 		$d_pemilih = array();
 		$res = array();
 		$sudah_memilih = 0;
@@ -15,7 +15,9 @@ class M_chart extends CI_Model {
 			$pemilih = $this->db->select('*')
 					->from('calon')
 					->join('pemilihan', 'calon.id_calon = pemilihan.id_calon')
-					->where('pemilihan.id_calon', $d_calon[$i]->id_calon)
+					->where([
+						'pemilihan.id_calon'=> $d_calon[$i]->id_calon,
+						'jenis_calon'=>'CALON'])
 					->get()->result();
 			$jml_pemilih = count($pemilih);
 			$sudah_memilih = $sudah_memilih + $jml_pemilih;
@@ -33,7 +35,7 @@ class M_chart extends CI_Model {
 	{
 		$data_user = $this->db->get('user')->result();
 		$jml_user 	= count($data_user);
-		$d_calon = $this->db->get('calon')->result();
+		$d_calon = $this->db->where('jenis_calon','CALON')->get('calon')->result();
 		$d_pemilih = array();
 		$res = array();
 		$sudah_memilih = 0;
@@ -49,6 +51,8 @@ class M_chart extends CI_Model {
 			$sat[$i]['label'] = $d_calon[$i]->nama_calon;
 			$sat[$i]['y'] = $jml_pemilih;
 		}
+		$sat[count($d_calon)]['label'] = 'BELUM MEMILIH';
+		$sat[count($d_calon)]['y'] = $jml_user - $sudah_memilih;
 		return $sat;
 	}	
 

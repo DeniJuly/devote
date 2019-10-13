@@ -19,7 +19,13 @@
         rel="stylesheet"
         href="<?= base_url() ?>public/css/sweetalert2/sweetalert2.min.css"
     />
-      <!-- owl css -->
+    <!-- shortcut -->
+    <link 
+        rel="shortcut icon" 
+        href="<?= base_url()?>public/img/logo/shortcut.png" 
+        type="image/x-icon"
+    />
+    <!-- owl css -->
     <link rel="stylesheet" href="<?= base_url() ?>public/owl/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>public/owl/css/owl.theme.default.css">
     <title>Aspirasi - DeVote</title>

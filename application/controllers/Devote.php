@@ -5,9 +5,9 @@ class Devote extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		// if($this->session->userdata('id_user')==null){
-		// 	redirect(site_url('Login'));
-		// }
+		if($this->session->userdata('id_user')==null){
+			redirect(site_url('login'));
+		}
 		$this->load->model('M_user');
 		$this->load->model('M_pemilihan');
 		$this->load->model('M_calon');
@@ -21,7 +21,7 @@ class Devote extends CI_Controller {
 			$this->load->view('user/data_diri',$data);
 		}
 		else{
-			redirect('Login');
+			redirect('login');
 		}
 	
 	}

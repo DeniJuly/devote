@@ -20,6 +20,11 @@
 			rel="stylesheet"
 			href="<?= base_url() ?>public/css/sweetalert2/sweetalert2.min.css"
 		/>
+		<link 
+			rel="shortcut icon" 
+			href="<?= base_url()?>public/img/logo/shortcut.png" 
+			type="image/x-icon"
+		/>
 	</head>
 	<body>
 		<div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash');?>"> </div>
@@ -59,6 +64,7 @@
 						autofocus="on"
 						name="nis"
 						autocomplete="off"
+						required
 					/>
 				</div>
 				<div class="form-group">
@@ -70,6 +76,7 @@
 						placeholder="masukan token"
 						name="token"
 						autocomplete="off"
+						required
 					/>
 				</div>
 				<div class="login-btn">
@@ -131,6 +138,18 @@
 			  timer: 1800
 			})
 		}
+	});
+	$(document).ready(function(){
+	var _originalSize = $(window).width() + $(window).height()
+	$(window).resize(function(){
+		if($(window).width() + $(window).height() != _originalSize){
+			$("#left").css("display","none");
+			$("#right").css("display","none");
+		}else{
+			$("#left").css("display","block");
+			$("#right").css("display","block");
+		}
+	});
 	});
 	</script>
 </html>

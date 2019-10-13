@@ -5,7 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Admin | Log in</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link 
+      rel="shortcut icon" 
+      href="<?= base_url()?>public/img/logo/shortcut.png" 
+      type="image/x-icon"
+  />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url() ?>public/admin/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>public/admin/dist/css/adminlte.min.css">

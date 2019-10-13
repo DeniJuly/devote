@@ -83,7 +83,6 @@ input[type="number"]:focus{
 	color: #2CB778;
     font-family: poppins-light;
 }
-
 @media only screen and (min-width: 576px){
 	.logo img{
 		right: 20px;
