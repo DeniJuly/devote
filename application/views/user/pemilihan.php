@@ -67,17 +67,21 @@
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h4 class="modal-title text-center" id="exampleModalLabel">Visi - Misi</h4>
+				        <h4 class="modal-title text-center" id="exampleModalLabel">Visi dan Misi</h4>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				       <h5 >Visi</h5>
-				       <?= $calon['visi'] ?>
+				       <h5>Visi</h5>
+								<p>
+									<?= $calon['visi'] ?>
+								</p>
 				       <br>
 				       <h5>Misi</h5>
-				       <?= $calon['misi'] ?>
+								<p>
+									<?= $calon['misi'] ?>
+								</p>
 				      </div>
 				    </div>
 				  </div>

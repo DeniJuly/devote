@@ -124,6 +124,14 @@ footer img {
 	width: 305px;
 }
 
+.modal-body h5 {
+	color: #2cb778;
+}
+
+.modal-body p {
+	opacity: 0.7;
+}
+
 @media only screen and (max-width: 375px) {
 	.img-profile {
 		height: 120px;
