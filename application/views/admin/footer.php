@@ -1,15 +1,9 @@
   <footer class="main-footer">
     <strong>Devote &copy;  <a href="http://adminlte.io">SMK Negeri 1 Bawang</a>.</strong>
-    <!-- <div class="float-right d-none d-sm-inline-block">
-      <b>Devote</b>
-    </div> -->
   </footer>
 
-  <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
   </aside>
-  <!-- /.control-sidebar -->
 </div>
 
 
@@ -29,7 +23,6 @@
 
 <script>
   $(function () {
-    // Summernote
     $('.textarea').summernote()
   })
 </script>
@@ -44,7 +37,7 @@ $(document).ready(function(){
       data : {id_calon : id},
       success : function(response){
         if (response == 1) {
-          toastr.success('Data Dihapus !!! .');
+          toastr.success('Data Dihapus !!!');
           setTimeout(function afterFiveSeconds() {
             console.log('wait')
           }, 5000);

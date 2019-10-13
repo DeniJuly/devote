@@ -13,6 +13,7 @@ class Admin extends CI_Controller {
 		$this->load->model('M_user');
 		$this->load->model('M_pemilihan');
 		$this->load->model('M_penilaian');
+		$this->load->model('M_chart');
 	}
 
 	public function index()
@@ -45,9 +46,8 @@ class Admin extends CI_Controller {
 
 	public function bar_diagram()
 	{
-		$dt = $this->M_pemilihan->join_calon_pemilihan()->result();
-		$data['sa'] = json_encode($dt);
-
+		$da = $this->M_chart->data_bar();
+		$data['sa'] = json_encode($da);
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/bar_diagram',$data);
 		$this->load->view('admin/footer');
@@ -55,7 +55,7 @@ class Admin extends CI_Controller {
 
 	public function pie_diagram()
 	{
-		$dt = $this->M_pemilihan->join_calon_pemilihan_pie()->result();
+		$dt = $this->M_chart->data_pie();
 		$data['sa'] = json_encode($dt);
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/pie_diagram', $data);
@@ -115,8 +115,6 @@ class Admin extends CI_Controller {
             }
         }else{
         	echo 3;
-        	$error = array('error' => $this->upload->display_errors());
-        	print_r($error);
         }
 	}
 
@@ -157,9 +155,19 @@ class Admin extends CI_Controller {
             	echo 2;
             }
         }else{
-        	echo 3;
-        	$error = array('error' => $this->upload->display_errors());
-        	print_r($error);
+        	$get_calon_by_id = $this->M_calon->some($where)->row();
+
+            $data_calon = array(
+            	'nama_calon'		=> $nama,
+            	'visi'				=> $visi,
+            	'misi'				=> $misi
+            );
+            $update = $this->M_calon->upd($where,$data_calon);
+            if ($update == 1) {
+            	echo 1;
+            }else{
+            	echo 2;
+            }
         }
 	}
 

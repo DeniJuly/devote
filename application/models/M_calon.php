@@ -11,6 +11,14 @@ class M_calon extends CI_Model {
 		return $this->db->get($this->tb);
 	}
 
+	public function get_nama()
+	{
+		$this->db->select('calon.nama_calon AS nama');
+		$this->db->from('calon');
+		
+		return $this->db->get();
+	}
+
 	public function some($where)
 	{
 		$this->db->where($where);

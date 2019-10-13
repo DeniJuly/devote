@@ -1,174 +1,213 @@
--- MySQL dump 10.16  Distrib 10.1.37-MariaDB, for Win32 (AMD64)
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: devote
--- ------------------------------------------------------
--- Server version	10.1.37-MariaDB
+-- Host: 127.0.0.1
+-- Generation Time: Oct 13, 2019 at 08:26 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `devote`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `admin` (
-  `id_admin` int(10) NOT NULL AUTO_INCREMENT,
+  `id_admin` int(10) NOT NULL,
   `username` varchar(50) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  PRIMARY KEY (`id_admin`)
+  `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `admin`
 --
 
-LOCK TABLES `admin` WRITE;
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `admin` (`id_admin`, `username`, `nama`, `password`) VALUES
+(1, 'admin', 'Deni Juli Setiawan', 'e184865de18d66d8e75ec64e2bdc7b8fc7999103');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aspirasi`
+--
+
+CREATE TABLE `aspirasi` (
+  `id_aspirasi` int(10) NOT NULL,
+  `id_user` int(10) NOT NULL,
+  `isi` text NOT NULL,
+  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `calon`
 --
 
-DROP TABLE IF EXISTS `calon`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `calon` (
-  `id_calon` int(10) NOT NULL AUTO_INCREMENT,
+  `id_calon` int(10) NOT NULL,
   `nama_calon` varchar(50) NOT NULL,
   `visi` varchar(1000) DEFAULT NULL,
   `misi` varchar(1000) DEFAULT NULL,
   `foto` varchar(100) NOT NULL,
-  `jenis_calon` enum('CALON','OSIS') NOT NULL,
-  PRIMARY KEY (`id_calon`)
+  `jenis_calon` enum('CALON','OSIS') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `calon`
 --
 
-LOCK TABLES `calon` WRITE;
-/*!40000 ALTER TABLE `calon` DISABLE KEYS */;
-/*!40000 ALTER TABLE `calon` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `calon` (`id_calon`, `nama_calon`, `visi`, `misi`, `foto`, `jenis_calon`) VALUES
+(4, 'Sahid Nur Anwar - Yeni Supratman', '<p>Lorem ipsum dolar amet&nbsp;<span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet</span></p>', '<ol><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li></ol>', 'Sahid_Nur_Anwar_-_Yeni_Supratman-13-Oct-2019.jpg', 'CALON'),
+(5, 'Deni Juli Setiawan - Samin Bin Ngalim', '<p>Lorem ipsum dolar amet&nbsp;<span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet</span></p>', '<ol><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet<br></li></ol>', 'Deni_Juli_Setiawan_-_Samin_Bin_Ngalim-13-Oct-2019.jpg', 'CALON'),
+(6, 'Bendi Wahyudi - Ibrahim', '<p>Lorem ipsum dolar amet&nbsp;<span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet&nbsp;</span><span style=\"font-size: 1rem;\">Lorem ipsum dolar amet</span><br></p>', '<ol><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet</li><li>Lorem ipsum dolar amet<br></li></ol>', 'Bendi_Wahyudi_-_Ibrahim-13-Oct-2019.jpg', 'CALON'),
+(7, 'Bendi Wahyudi - Ibrahim', '', '', 'Bendi_Wahyudi_-_Ibrahim-13-Oct-2019.jpg', 'OSIS');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `kelas`
 --
 
-DROP TABLE IF EXISTS `kelas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `kelas` (
-  `id_kelas` int(10) NOT NULL AUTO_INCREMENT,
-  `nama_kelas` varchar(10) NOT NULL,
-  PRIMARY KEY (`id_kelas`)
+  `id_kelas` int(10) NOT NULL,
+  `nama_kelas` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `kelas`
 --
 
-LOCK TABLES `kelas` WRITE;
-/*!40000 ALTER TABLE `kelas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `kelas` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `kelas` (`id_kelas`, `nama_kelas`) VALUES
+(1, 'X RPL 1');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `pemilihan`
 --
 
-DROP TABLE IF EXISTS `pemilihan`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pemilihan` (
   `id_calon` int(10) NOT NULL,
   `id_user` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `pemilihan`
---
-
-LOCK TABLES `pemilihan` WRITE;
-/*!40000 ALTER TABLE `pemilihan` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pemilihan` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `penilaian`
 --
 
-DROP TABLE IF EXISTS `penilaian`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `penilaian` (
   `id_calon` int(10) NOT NULL,
   `id_user` int(10) NOT NULL,
   `penilaian` double NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `penilaian`
---
-
-LOCK TABLES `penilaian` WRITE;
-/*!40000 ALTER TABLE `penilaian` DISABLE KEYS */;
-/*!40000 ALTER TABLE `penilaian` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `id_user` int(6) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `id_kelas` int(10) NOT NULL,
   `jk` int(1) NOT NULL,
   `token` varchar(5) NOT NULL,
-  `jenis_user` enum('GURU','SISWA') NOT NULL,
-  PRIMARY KEY (`id_user`)
+  `jenis_user` enum('GURU','SISWA') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `user`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `user` (`id_user`, `nama`, `id_kelas`, `jk`, `token`, `jenis_user`) VALUES
+(11111, 'Samin Bin Ngalim', 1, 0, 'ABCD', 'GURU'),
+(14903, 'Deni Juli Setiawan', 1, 1, 'ABCD', 'SISWA'),
+(14904, 'Dewi Sinta', 1, 0, 'ABCD', 'SISWA');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indexes for table `aspirasi`
+--
+ALTER TABLE `aspirasi`
+  ADD PRIMARY KEY (`id_aspirasi`);
+
+--
+-- Indexes for table `calon`
+--
+ALTER TABLE `calon`
+  ADD PRIMARY KEY (`id_calon`);
+
+--
+-- Indexes for table `kelas`
+--
+ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`id_kelas`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `aspirasi`
+--
+ALTER TABLE `aspirasi`
+  MODIFY `id_aspirasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `calon`
+--
+ALTER TABLE `calon`
+  MODIFY `id_calon` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `id_kelas` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-09-29 19:32:53
