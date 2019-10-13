@@ -34,12 +34,12 @@ class Devote extends CI_Controller {
 		if ($valid_user == true) {
 			redirect('devote/pemilihan');
 		} else {
-		$where = array(
-			"jenis_calon" => 'OSIS'
-		);
-		$data['osis'] = $this->M_user->get_where('calon',$where);
-		$this->load->view('user/ulasan',$data);
-	}
+			$where = array(
+				"jenis_calon" => 'OSIS'
+			);
+			$data['osis'] = $this->M_user->get_where('calon',$where);
+			$this->load->view('user/ulasan',$data);
+		}
 	}
 
 	public function pemilihan()
