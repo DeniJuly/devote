@@ -12,7 +12,7 @@ class Login extends CI_Controller
 			redirect('devote');
 			}
 		else{
-			$this->load->view('login');
+			$this->load->view('user/countdown');
 			
 		}
 	}
