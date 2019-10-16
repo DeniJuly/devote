@@ -47,9 +47,9 @@ class Admin extends CI_Controller {
 
 	public function bar_diagram()
 	{
-		$da = $this->M_chart->data_bar();
+		$da = $this->M_chart->data_chart();
 		$data['sa'] = json_encode($da);
-		// print_r($data['sa']);
+		// print_r($da);
 		// die();
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/bar_diagram',$data);
@@ -58,7 +58,7 @@ class Admin extends CI_Controller {
 
 	public function pie_diagram()
 	{
-		$dt = $this->M_chart->data_pie();
+		$dt = $this->M_chart->data_chart();
 		$data['sa'] = json_encode($dt);
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/pie_diagram', $data);
