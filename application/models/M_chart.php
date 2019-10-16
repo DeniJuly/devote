@@ -23,11 +23,11 @@ class M_chart extends CI_Model {
 			$sudah_memilih = $sudah_memilih + $jml_pemilih;
 
 			$d_pemilih[$i] = $jml_pemilih;
-			$sat[$i]['nama'] = $d_calon[$i]->nama_calon;
-			$sat[$i]['data'] = $jml_pemilih;
+			$sat[$i]['label'] = $d_calon[$i]->nama_calon;
+			$sat[$i]['y'] = $jml_pemilih;
 		}
-		$sat[count($d_calon)]['nama'] = 'BELUM MEMILIH';
-		$sat[count($d_calon)]['data'] = $jml_user - $sudah_memilih;
+		$sat[count($d_calon)]['label'] = 'BELUM MEMILIH';
+		$sat[count($d_calon)]['y'] = $jml_user - $sudah_memilih;
 		return $sat;
 	}
 
@@ -43,7 +43,10 @@ class M_chart extends CI_Model {
 			$pemilih = $this->db->select('*')
 					->from('calon')
 					->join('pemilihan', 'calon.id_calon = pemilihan.id_calon')
-					->where('pemilihan.id_calon', $d_calon[$i]->id_calon)
+					->where([
+						'pemilihan.id_calon'=> $d_calon[$i]->id_calon,
+						'jenis_calon'	=> 'CALON']
+						)
 					->get()->result();
 			$jml_pemilih = count($pemilih);
 			$sudah_memilih = $sudah_memilih + $jml_pemilih;

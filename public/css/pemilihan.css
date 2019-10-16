@@ -124,11 +124,12 @@ footer img {
 	text-align: right;
 	width: 305px;
 }
+
 .modal-sub_title {
 	color: #2cb778;
 }
 .modal-body p,
-.modal-body ol{
+.modal-body ol {
 	opacity: 0.8;
 }
 @media only screen and (max-width: 375px) {

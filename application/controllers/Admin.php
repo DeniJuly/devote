@@ -8,9 +8,8 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		if ($this->session->userdata('username') == "") {
 			redirect('login/login_admin');
-		}elseif ($this->session->userdata('id_user') != "") {
-			redirect('Login');
 		}
+		
 		$this->load->model('M_calon');
 		$this->load->model('M_user');
 		$this->load->model('M_pemilihan');
@@ -166,7 +165,8 @@ class Admin extends CI_Controller {
             $data_calon = array(
             	'nama_calon'		=> $nama,
             	'visi'				=> $visi,
-            	'misi'				=> $misi
+				'misi'				=> $misi,
+				'jenis_calon'		=> htmlspecialchars($jc)
             );
             $update = $this->M_calon->upd($where,$data_calon);
             if ($update == 1) {

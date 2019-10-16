@@ -140,16 +140,16 @@
 		}
 	});
 	$(document).ready(function(){
-	var _originalSize = $(window).width() + $(window).height()
-	$(window).resize(function(){
-		if($(window).width() + $(window).height() != _originalSize){
-			$("#left").css("display","none");
-			$("#right").css("display","none");
-		}else{
-			$("#left").css("display","block");
-			$("#right").css("display","block");
-		}
-	});
+		var _originalSize = $(window).width() + $(window).height()
+		$(window).resize(function(){
+			if($(window).width() + $(window).height() != _originalSize){
+				$("#left").css("display","none");
+				$("#right").css("display","none");
+			}else{
+				$("#left").css("display","block");
+				$("#right").css("display","block");
+			}
+		});
 	});
 	</script>
 </html>
