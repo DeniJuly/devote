@@ -111,12 +111,18 @@
               <br>
 		 	  <div class="form-group">
 		 	  	<label>Foto Calon :</label>
-		 	  	<input type="file" class="form-control" name="foto_calon" id="foto_calon">
-		 	  </div>
+		 	  	<input type="file" name="foto_calon" id="foto_calon">
+			   </div>
+			   <div class="form-group">
+			   <select name="jenis_calon" class="form-control">
+				   <option value="OSIS">OSIS</option>
+				   <option value="CALON">CALON</option>
+			   </select>
+		   </div>
 		    </div>
 		    <div class="modal-footer justify-content-between">
 		      <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-		      <button type="submit" class="btn btn-primary">Simpan</button>
+		      <button type="submit" class="btn btn-primary" id="btn-smp">Simpan</button>
 		    </div>
 			</form>
 		  </div>
@@ -127,6 +133,7 @@
 		$(document).ready(function(){
 			var id = '<?php echo $dt->id_calon ?>';
 			$('#FORM_EDIT'+id).submit(function(e){
+				$('#btn-smp').addClass('disabled');
 		        e.preventDefault(); 
 		        $.ajax({
 		            url:'<?= base_url() ?>index.php/admin/edit_calon',
@@ -146,7 +153,8 @@
 		                    location.reload();
 		                  });
 		              }else if (response == 2) {
-		                toastr.error('Data Gagal Diedit !!! .');
+		              	$('#btn-smp').removeClass('disabled');
+		                toastr.error('Data Gagal Diedit !!!');
 		              }
 		            }
 		        });

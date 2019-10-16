@@ -1,14 +1,3 @@
-<?php
- 
-$dataPoints = array( 
-  array("y"=>10,"label"=>"Risqi Ardiansyah"),
-  array("y"=>6,"label"=>"Deni Juli Setiawan"),
-  array("y"=>12,"label"=>"Wahyu Feb"),
-  array("y"=>2,"label"=>"M. Saiful"),
-  array("y"=>2,"label"=>"M. Saiful")
-)
- 
-?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
   <section class="content-header">
@@ -41,9 +30,6 @@ var chart = new CanvasJS.Chart("chartContainer", {
   title: {
     text: "Data Sementara Hasil Perhitungan"
   },
-  subtitles: [{
-    text: "*Jika data calon tidak muncul, berarti belum ada yg memilih calon"
-  }],
   data: [{
     type: "pie",
     yValueFormatString: "#,##0 Pemilih",

@@ -16,6 +16,11 @@
 			rel="stylesheet"
 			href="<?= base_url() ?>public/css/sweetalert2/sweetalert2.min.css"
 		/>
+		<link 
+			rel="shortcut icon" 
+			href="<?= base_url()?>public/img/logo/shortcut.png" 
+			type="image/x-icon"
+		/>
 		<title>Pemilihan - DeVote</title>
 	</head>
 	<body>
@@ -40,7 +45,7 @@
 								</h6>
 								<div class="row" style="padding:20px;">
 									<img
-										src="<?= base_url() ?>public/img/example.jpg"
+										src="<?= base_url() ?>public/img/foto_calon/<?php echo $calon['foto']?>"
 										alt="foto profile"
 										class="img-responsive img-profile"
 									/>
@@ -67,16 +72,16 @@
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h4 class="modal-title text-center" id="exampleModalLabel">Visi - Misi</h4>
+				        <h4 class="modal-title text-center" id="exampleModalLabel">Visi dan Misi</h4>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				       <h5 >Visi</h5>
+				       <h5 class="modal-sub_title">Visi</h5>
 				       <?= $calon['visi'] ?>
 				       <br>
-				       <h5>Misi</h5>
+				       <h5 class="modal-sub_title">Misi</h5>
 				       <?= $calon['misi'] ?>
 				      </div>
 				    </div>
@@ -105,7 +110,7 @@
 				Swal.fire({
 				  title: 'Apakah anda Yakin?',
 				  text: "",
-				  type: 'warning',
+				  type: 'question',
 				  showCancelButton: true,
 				  confirmButtonColor: '#3085d6',
 				  cancelButtonColor: '#d33',

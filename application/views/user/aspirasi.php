@@ -19,7 +19,13 @@
         rel="stylesheet"
         href="<?= base_url() ?>public/css/sweetalert2/sweetalert2.min.css"
     />
-      <!-- owl css -->
+    <!-- shortcut -->
+    <link 
+        rel="shortcut icon" 
+        href="<?= base_url()?>public/img/logo/shortcut.png" 
+        type="image/x-icon"
+    />
+    <!-- owl css -->
     <link rel="stylesheet" href="<?= base_url() ?>public/owl/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>public/owl/css/owl.theme.default.css">
     <title>Aspirasi - DeVote</title>
@@ -31,17 +37,13 @@
             <h4>Terimakasih, telah memilih</h4>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-6">
+            <div class="col-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">
                 <div class="card card-data_diri">
                     <div class="card-body">
                         <form method="post" class="form" id="aspirasiform">
                             <h5 class="text-center">Apa harapan kamu untuk OSIS periode 2019/2020?</h5 class="text-center">
-                                <textarea name="isi" id="aspirasi" class="form-control" placeholder="tulis harapan kamu disini..."></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-sm-12">
-                                    <button class="btn-kirim" type="submit">SIMPAN</button>
-                                </div>
+                                <textarea name="isi" id="aspirasi" class="form-control" required placeholder="tulis harapan kamu disini..."></textarea>
+                                <button class="btn-kirim" type="submit">SIMPAN</button>
                             </div>
                         </form>
                     </div>
@@ -51,7 +53,7 @@
             </div>
             <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-12">
+                <div class="col-12 col-sm-12 col-lg-6 col-md-6 offset-md-3 offset-lg-3">
                     <div class="owl-carousel">
                         <?php foreach ($aspirasi as $aspirasi ) { ?>
                         <div class="harapan">

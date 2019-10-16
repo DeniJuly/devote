@@ -7,24 +7,24 @@ class Login extends CI_Controller
 		$this->load->model('M_user');
 		$this->load->model('M_admin');
 	}
-
-
 	public function index(){
 		if($this->session->userdata('id_user')){
 			redirect('devote');
 			}
 		else{
 			$this->load->view('login');
+			
 		}
 	}
-
     public function login()
 	{
 			$token = $this->input->post('token');
 			$nis = $this->input->post('nis');
 			$valid_user = $this->M_user->cek_session($token,$nis);
 			$output = array('error' => false);
-
+			$data = $this->M_user->time('waktu_pemilihan');
+			$timenow = date('Y-m-d H:i:s') ;
+		if ($timenow >= $data['mulai_pemilihan'] && $timenow <= $data['akhir_pemilihan']) {
 			if ($valid_user['hasil']['status'] == TRUE) {
 				switch ($valid_user['hasil']['data']['jenis_user']) {
 						case 'SISWA':
@@ -42,11 +42,14 @@ class Login extends CI_Controller
 				$output['error'] = true ;
 				$output['message'] = $valid_user['hasil']['pesan'];
 			}
+		}else {
+			$output['error'] = true ;
+			$output['message'] = "Maaf Waktu pemilihan telah berakhir";
+		}
 
 		echo json_encode($output);
 
 	}
-
 	public function login_admin()
 	{
 		$this->load->view('admin/page/login');

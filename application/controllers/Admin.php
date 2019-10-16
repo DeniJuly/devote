@@ -9,10 +9,12 @@ class Admin extends CI_Controller {
 		if ($this->session->userdata('username') == "") {
 			redirect('login/login_admin');
 		}
+		
 		$this->load->model('M_calon');
 		$this->load->model('M_user');
 		$this->load->model('M_pemilihan');
 		$this->load->model('M_penilaian');
+		$this->load->model('M_chart');
 	}
 
 	public function index()
@@ -45,9 +47,10 @@ class Admin extends CI_Controller {
 
 	public function bar_diagram()
 	{
-		$dt = $this->M_pemilihan->join_calon_pemilihan()->result();
-		$data['sa'] = json_encode($dt);
-
+		$da = $this->M_chart->data_bar();
+		$data['sa'] = json_encode($da);
+		// print_r($data['sa']);
+		// die();
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/bar_diagram',$data);
 		$this->load->view('admin/footer');
@@ -55,7 +58,7 @@ class Admin extends CI_Controller {
 
 	public function pie_diagram()
 	{
-		$dt = $this->M_pemilihan->join_calon_pemilihan_pie()->result();
+		$dt = $this->M_chart->data_pie();
 		$data['sa'] = json_encode($dt);
 		$this->load->view('admin/header');
 		$this->load->view('admin/page/pie_diagram', $data);
@@ -86,13 +89,13 @@ class Admin extends CI_Controller {
 
 	public function tambah_calon()
 	{
-		$nama = $this->input->post('nama_calon');
-		$visi = $this->input->post('text-visi');
-		$misi = $this->input->post('text-misi');
+		$nama 	= $this->input->post('nama_calon');
+		$visi 	= $this->input->post('text-visi');
+		$misi 	= $this->input->post('text-misi');
+		$jc		= $this->input->post('jenis_calon');
 
 		date_default_timezone_set('Asia/Jakarta');
-		$tanggal = date("d-M-Y");
-		$tgl_pembuatan = date('Y-m-d');
+		$tanggal = date("d-m-Y");
 
 		$config['upload_path']  ="./public/img/foto_calon/";
         $config['allowed_types']='gif|jpg|png';
@@ -102,10 +105,11 @@ class Admin extends CI_Controller {
         if($this->upload->do_upload("foto_calon")){
             $data = $this->upload->data();
             $data_calon = array(
-            	'nama_calon'		=> $nama,
+            	'nama_calon'		=> htmlspecialchars($nama),
             	'visi'				=> $visi,
             	'misi'				=> $misi,
-            	'foto'				=> $data['file_name']
+				'foto'				=> htmlspecialchars($data['file_name']),
+				'jenis_calon'		=> htmlspecialchars($jc)
             );
             $ins = $this->M_calon->ins($data_calon);
             if ($ins == 1) {
@@ -115,8 +119,6 @@ class Admin extends CI_Controller {
             }
         }else{
         	echo 3;
-        	$error = array('error' => $this->upload->display_errors());
-        	print_r($error);
         }
 	}
 
@@ -128,10 +130,10 @@ class Admin extends CI_Controller {
 		$nama = $this->input->post('nama_calon');
 		$visi = $this->input->post('text-visi');
 		$misi = $this->input->post('text-misi');
+		$jc		= $this->input->post('jenis_calon');
 
 		date_default_timezone_set('Asia/Jakarta');
-		$tanggal = date("d-M-Y");
-		$tgl_pembuatan = date('Y-m-d');
+		$tanggal = date("d-m-Y");
 
 		$config['upload_path']  ="./public/img/foto_calon/";
         $config['allowed_types']='gif|jpg|png';
@@ -145,10 +147,11 @@ class Admin extends CI_Controller {
 			unlink("./public/img/foto_calon/".$get_calon_by_id->foto);
 
             $data_calon = array(
-            	'nama_calon'		=> $nama,
+            	'nama_calon'		=> htmlspecialchars($nama),
             	'visi'				=> $visi,
             	'misi'				=> $misi,
-            	'foto'				=> $data['file_name']
+				'foto'				=> htmlspecialchars($data['file_name']),
+				'jenis_calon'		=> htmlspecialchars($jc)
             );
             $update = $this->M_calon->upd($where,$data_calon);
             if ($update == 1) {
@@ -157,9 +160,20 @@ class Admin extends CI_Controller {
             	echo 2;
             }
         }else{
-        	echo 3;
-        	$error = array('error' => $this->upload->display_errors());
-        	print_r($error);
+        	$get_calon_by_id = $this->M_calon->some($where)->row();
+
+            $data_calon = array(
+            	'nama_calon'		=> $nama,
+            	'visi'				=> $visi,
+				'misi'				=> $misi,
+				'jenis_calon'		=> htmlspecialchars($jc)
+            );
+            $update = $this->M_calon->upd($where,$data_calon);
+            if ($update == 1) {
+            	echo 1;
+            }else{
+            	echo 2;
+            }
         }
 	}
 

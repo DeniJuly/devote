@@ -6,7 +6,7 @@ class Devote extends CI_Controller {
 	{
 		parent::__construct();
 		if($this->session->userdata('id_user')==null){
-			redirect(site_url('Login'));
+			redirect(site_url('login'));
 		}
 		$this->load->model('M_user');
 		$this->load->model('M_pemilihan');
@@ -21,11 +21,10 @@ class Devote extends CI_Controller {
 			$this->load->view('user/data_diri',$data);
 		}
 		else{
-			redirect('Login');
+			redirect('login');
 		}
 	
 	}
-
 
 	public function ulasan()
 	{	
@@ -35,52 +34,33 @@ class Devote extends CI_Controller {
 		if ($valid_user == true) {
 			redirect('devote/pemilihan');
 		} else {
-		$where = array(
-			"jenis_calon" => 'OSIS'
-		);
-		$data['osis'] = $this->M_user->get_where('calon',$where);
-		$this->load->view('user/ulasan',$data);
-	}
+			$where = array(
+				"jenis_calon" => 'OSIS'
+			);
+			$data['osis'] = $this->M_user->get_where('calon',$where);
+			$this->load->view('user/ulasan',$data);
+		}
 	}
 
 	public function pemilihan()
 	{
-		$table = "pemilihan";
-		$id = $this->session->userdata('id_user');
-		$valid_user = $this->M_user->cek_field($table,$id);
-		$valid_user_penilaian = $this->M_user->cek_field('penilaian',$id);
-		if ($valid_user == true) {
-			redirect('devote/aspirasi');
-		}elseif($valid_user_penilaian == false){
-			redirect('devote/ulasan');
-		} else {
 		$where = array(
-			"jenis_calon" => 'OSIS'
+			"jenis_calon" => 'CALON'
 		);
 		$data['calon'] = $this->M_user->get_where_calon("calon",$where);
 		$this->load->view('user/pemilihan',$data);
 		$id_user = $this->session->userdata('id_user');
 	}
-}
 
 	public function aspirasi()
 	{
-		$table = "aspirasi";
-		$id = $this->session->userdata('id_user');
-		$valid_user = $this->M_user->cek_field($table,$id);
-		$valid_user_pemilihan = $this->M_user->cek_field('pemilihan',$id);
-		if ($valid_user == true) {
-			redirect('Login/logout');
-		} elseif($valid_user_pemilihan == false){
-			redirect('devote/pemilihan');
-		} else {
 		$where = array(
 			"jenis_calon" => 'OSIS'
 		);
 		$data['aspirasi'] = $this->M_user->get_data('aspirasi','aspirasi.waktu');
 		$this->load->view('user/aspirasi',$data);
 	}
-}
+	
 	function rate_old_ossis()
 	{
 		$id = $this->session->userdata('id_user');
@@ -108,9 +88,15 @@ class Devote extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		$data = array(
 				'id_calon' => $id_calon,
-				'id_user'  => $id_user,
-			);
+		);
 		$this->M_pemilihan->input($data);
+		$where = array(
+			'id_user' => $id_user	
+		);
+		$data_status = array(
+			'status_pemilihan' => 1
+		);
+		$this->M_user->update_data('user',$data_status,$where);
 		redirect('/devote/aspirasi');
 	}
 

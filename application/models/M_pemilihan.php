@@ -21,14 +21,9 @@ class M_pemilihan extends CI_Model {
 		return $this->db->get($this->tb);
 	}
 
-	public function join_calon_pemilihan()
+	public function input($data)
 	{
-		$this->db->select('calon.nama_calon as nama, count(pemilihan.id_calon) as data');
-		$this->db->from('calon');
-		$this->db->join('pemilihan','pemilihan.id_calon = calon.id_calon');
-		$this->db->group_by('pemilihan.id_calon');
-		$this->db->order_by('data', 'desc');
-		return $this->db->get();
+		return $this->db->insert($this->tb,$data);
 	}
 
 	public function join_calon_pemilihan_pie()
@@ -40,21 +35,6 @@ class M_pemilihan extends CI_Model {
 		$this->db->order_by('y', 'desc');
 		return $this->db->get();
 	}
-
-	// public function join_calon_pemilihan_test($where)
-	// {
-	// 	$this->db->select('
-	// 		calon.id_calon,nama_calon,pemilihan.id_calon
-	// 	');
-	// 	$this->db->from('calon');
-	// 	$this->db->join('pemilihan','pemilihan.id_calon = calon.id_calon');
-	// 	$this->db->where($where);
-	// 	return $this->db->get();
-	// }
-	public function input($data){
-		$this->db->insert($this->tb,$data);
-	}
-	
 
 }
 
