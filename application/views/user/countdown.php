@@ -45,15 +45,19 @@
 		<div class="row">
 			<div class="col-10 col-md-6 col-lg-6 offset-1 offset-md-3 offset-lg-3 text-center bungkus">
 				<img src="<?php echo base_url() ?>public/img/logo/logo.png" alt="LOGO" width="60%">
+				<?php $timenow = date('Y-m-d H:i:s') ;if ($timenow >= $waktu['akhir_pemilihan']) { ?>
+					<h3 style="color:#2cb778">Waktu Pemilihan Sudah Habis</h3>
+				<?php } else {?>
 				<h3 style="color:#2cb778">Waktu Pemilihan Akan Dibuka Dalam</h3>
 				<h1 id="demo"></h1> 
+			<?php }?>
 			</div>
 		</div>
 	</div>
 
 <script src="<?= base_url() ?>public/js/jquery.js"></script>
 <script> 
-	var deadline = new Date("Oct 17, 2019 07:00:00").getTime(); 
+	var deadline = new Date("<?= $time['start'] . substr($time['mulai_pemilihan'],11)?>").getTime(); 
 	var x = setInterval(function() { 
 	var now = new Date().getTime(); 
 	var t = deadline - now; 
@@ -68,6 +72,9 @@
 			document.getElementById("demo").innerHTML = "EXPIRED"; 
 		} 
 	}, 1000); 
+	function date(){
+
+	}
 </script> 
 
 </body> 
