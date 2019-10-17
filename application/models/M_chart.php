@@ -36,8 +36,8 @@ class M_chart extends CI_Model {
 		}
 		$sat[count($d_calon)]['label'] = 'BELUM MEMILIH';
 		$sat[count($d_calon)]['y'] = $jml_user - $jml_pemilihan;
-		$sat[$jml_pemilihan]['label'] = 'TIDAK SESUAI WAKTU';
-		$sat[$jml_pemilihan]['y'] = $jml_pemilihan - $sudah_memilih;
+		$sat[count($d_calon)+1]['label'] = 'TIDAK SESUAI WAKTU';
+		$sat[count($d_calon)+1]['y'] = $jml_pemilihan - $sudah_memilih;
 		// echo json_encode($sat);
 		// die();
 		return $sat;
