@@ -12,7 +12,7 @@ class M_pemilihan extends CI_Model {
 
 	public function jml_pemilih()
 	{
-		return $this->db->query("SELECT count(id_user) as data FROM pemilihan");
+		return $this->db->query("SELECT count(id_user) as data FROM user");
 	}
 
 	public function some($where)
