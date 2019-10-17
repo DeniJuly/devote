@@ -15,6 +15,17 @@ class M_user extends CI_Model {
 	public function get_where_calon($table,$where){
 		return $this->db->get_where($table,$where)->result_array();
 	}
+	public function time($table){
+		return $this->db->get($table)->row_array();
+	}
+	public function time_parse($table){
+		$hasil = $this->db->select("DATE_FORMAT($table.mulai_pemilihan,'%b %d ,%Y ') as start,$table.mulai_pemilihan")->from($table)->get()->row_array();
+		return $hasil;
+	}
+	public function update_data($table,$data,$where){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
 	public function join_user_kelas()
 	{
 		$this->db->select('
@@ -90,7 +101,7 @@ class M_user extends CI_Model {
 							->limit(1)
 							->get($table);
 		if ($result->num_rows() > 0 ) {
-				return $result->row();
+				return $result->row_array();
 			} else {
 				return false;
 			}
